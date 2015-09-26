@@ -1,0 +1,51 @@
+.kfz-header{text-align:center}
+.kfz-header h3{font-size:0.85rem;color:#fff;margin-top:0.2rem}
+.kfz-header .back_ico{position:absolute;}
+
+.kfz-layout{color: #333333;}
+.icon_pay{background: url("../images/icon_pay.png") no-repeat;background-size:16rem;}
+.first_text{margin-right: 0.3rem;}
+
+/*选择支付方式*/
+.payment_box .select_text {font-size: 0.7rem;height: 2.25rem;line-height: 2.25rem;border-bottom: 0.025rem solid #cccccc;border-top: 0.025rem solid #cccccc;padding: 0 0.5rem;}
+.payment_box .select_text .left{float: left;}
+.payment_box .select_text .right{float: right;color: #ea3605;}
+.payment_box .payment_list .item{height: 2.25rem;line-height: 2.25rem; border-bottom: 0.025rem dashed  #cccccc;margin: 0 0.5rem;padding-top: 0.35rem;}
+.payment_box .payment_list .item .left{float: left;padding-left: -0.15rem;}
+.payment_box .payment_list .item .left .img{float: left;background-position: -5.15rem  -1.95rem;width:1.58rem;height:1.58rem;}
+.payment_box .payment_list .item .left .text{float: left;margin-top: -0.73rem;margin-left: 0.55rem;}
+.payment_box .payment_list .item .left .text .account{font-size: 0.6rem;}
+.payment_box .payment_list .item .left .text .info{font-size: 0.45rem;color: #6b6b6b;margin-top: -1.53rem;}
+.payment_box .payment_list .item .left .text .info .balance{margin-right: 0.75rem;}
+.payment_box .payment_list .item .right{background-position: -1.975rem -0.375rem; width: 0.95rem;height: 0.95rem;margin-top: 0.3rem;margin-left: 94%;}
+
+.payment_box .payment_list .item_02 .checked{background-position: -0.33rem -0.39rem;}
+.payment_box .payment_list .item_02 .left .img{background-position: -2.575rem  -1.95rem;}
+.payment_box .payment_list .item_03 .left .img{background-position: -0.22rem  -1.9rem;}
+.payment_box .payment_list .item_03{border-bottom: 0.025rem solid #cccccc;}
+.payment_box  .submit{margin-left:0.5rem;margin-right:0.5rem;background: #ea3605;color: #fff;font-size: 0.6rem;height: 1.875rem;line-height: 1.875rem;margin-top: 1.25rem;text-align: center;border-radius: 0.125rem}
+
+/*输入支付密码弹框*/
+.input_pay_password{height: 8.5rem;padding: 1rem 0.625rem 0.75rem 0.625rem;border: 0.025rem solid #000000}
+.input_pay_password .title{font-size: 0.7rem;}
+.input_pay_password .password{margin-top: 1rem;height: 1.95rem;line-height: 1.95rem;width: 100%;border: 1px solid #cccccc;border-radius: 0.2rem;font-size: 0.6rem;}
+.input_pay_password .button{font-size: 0.6rem;margin-top: 1rem;text-align: center;}
+.input_pay_password .button div{width: 42%;height: 2rem;line-height: 2rem;cursor: pointer;border-radius: 0.125rem;}
+.input_pay_password .button .close{background: #cccccc;float: left;}
+.input_pay_password .button .pay{color: #FFFFFF;background: #ea3605;float: left;margin-left: 16%;}
+
+/*支付密码不正确弹框*/
+.password_error{height: 8.5rem;border: 0.025rem solid #000000;padding: 0 0.625rem;}
+.password_error .title{font-size: 0.7rem;text-align: center;margin-top: 1.75rem;}
+.password_error .tip{font-size: 0.5rem;text-align: center;margin-top: 0.6rem;}
+.password_error .tip em{color: #ea3605;margin-right: 0.225rem;;margin-left: 0.225rem;}
+.password_error  .button{margin-top: 2.1rem;font-size: 0.6rem;}
+.password_error  .button .left{cursor:pointer;background:#cccccc;text-align:center;float:left;width: 42%;height: 2rem;line-height: 2rem;border-radius: 0.125rem;}
+.password_error  .button .right{cursor:pointer;float:left;color: #175096;margin-left: 15%;margin-top: 0.65rem;}
+
+/*账户锁定提示*/
+.account_lock_tip{height: 8.5rem;border: 0.025rem solid #000000;}
+.account_lock_tip div{text-align: center;}
+.account_lock_tip .title{font-size: 0.7rem;margin-top: 1.75rem;}
+.account_lock_tip .tip{font-size: 0.6rem;margin-top: 0.5rem;}
+.account_lock_tip  .button {margin-left:29%;margin-top:2rem;font-size: 0.6rem;color:#fff;cursor:pointer;background:#175096;text-align:center;float:left;width: 42%;height: 2rem;line-height: 2rem;border-radius: 0.125rem;}

@@ -1,0 +1,60 @@
+html {
+ color: #000;
+ background: #fff;
+ -webkit-text-size-adjust: 100%;
+ -ms-text-size-adjust: 100%
+}
+
+html * {
+ outline: 0;
+ -webkit-text-size-adjust: none;
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+.kfz-layout{min-width:300px;max-width:640px;margin:0 auto;}
+.kfz-layout-con{margin:0 0.5rem;}
+
+.kfz-header{height:2.5rem;background:-moz-linear-gradient(top,#021f49,#002e62);background:-webkit-gradient(linear, 0 0, 0 100%, from(#021f49), to(#002e62));display:block;padding:0.56rem 0.48rem;position:relative}
+.kfz-header .logo{width:3.25rem;display:block;float:left;}
+.kfz-header .logo img{width:3.25rem;}
+.kfz-header .area{border-left:1px solid #4f688d;font-size:0.8rem;float:left;margin-top:0.3rem;text-indent:0.3rem;margin-left:0.3rem}
+.kfz-header .area a{color:#ffffff;}
+.kfz-header .back_ico{display:block;background:url("../../img/m_ico_add.png") no-repeat;width:1.2rem;height:1.2rem;overflow:hidden;background-size:5.8rem;background-position:-1.2rem 0.1rem;margin-left:0.3rem}
+.kfz-header .ico{float:right;height:1.2rem;}
+.kfz-header .ico a{display:block;background:url("../../img/m_ico_add.png") no-repeat;width:1.2rem;height:1.2rem;overflow:hidden;background-size:5.8rem;}
+.kfz-header .ico .search_ico{background-position:-2.4rem 0.1rem;margin-right:1rem}
+.kfz-header .ico .user_ico{background-position:-3.5rem 0.1rem;margin-right:1rem}
+.kfz-header .ico .nav_ico{background-position:-4.65rem 0.1rem;margin-right:0.2rem}
+.kfz-header .ico .nav_ico.open{background-position:-4.65rem -1.05rem;}
+
+.kfz-header .nav{position:absolute;top:2.5rem;left:0;width:100px;background:#175097;width:100%;z-index:10001;display:none;padding:0 0.5rem}
+.kfz-header .nav_box{border-bottom:1px dashed #7b9ac0;}
+.kfz-header .nav_box a{color:#ffffff;font-size:0.65rem;line-height:2.1rem;margin:0 0.25rem;float:left}
+.kfz-header .up_icon{background:url("../../img/m_ico_add.png") no-repeat -2.4rem -1.1rem;display:block;width:1.2rem;height:1.2rem;overflow:hidden;background-size:5.8rem;margin:0.2rem auto;}
+
+.kfz-section{height:auto;min-height:100%;}
+
+.kfz-footer{background:#1e1e1e;}
+.kfz-footer ul{padding:0.8rem}
+.kfz-footer li{width:25%;float:left;text-align:right}
+.kfz-footer li a{color:#acacac;font-size:0.7rem;line-height:1.4rem;}
+.kfz-footer .foot_bot{text-align:center;padding:0.8rem 0;border-top:1px solid #515151}
+.kfz-footer .foot_bot p{color:#6b6b6b;font-size:0.4rem;line-height:0.8rem;}
+
+.kfz-select-icon{width:0.75rem;height:0.75rem;display:inline-block;overflow:hidden;background:url("../../img/m_ico_add.png") no-repeat -1.25rem -1.2rem;background-size:5.8rem;margin-top:0.6rem;}
+.kfz-select-icon.up{-webkit-transform:rotate(180deg);}
+
+.line_gray{height:0.75rem;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#f0f0f0}
+
+/*等级*/
+.icon_level{background:url("../../img/icon_level.png") repeat-x;background-size:0.825rem;height:0.6rem;display:inline-block}
+.icon_level.star_1,.icon_level.star_2,.icon_level.star_3,.icon_level.star_4,.icon_level.star_5{background-position:0 0;}
+.icon_level.red_1,.icon_level.red_2,.icon_level.red_3,.icon_level.red_4,.icon_level.red_5{background-position:0 -0.6rem;}
+.icon_level.blue_1,.icon_level.blue_2,.icon_level.blue_3,.icon_level.blue_4,.icon_level.blue_5{background-position:0 -1.2rem;}
+.icon_level.orange_1,.icon_level.orange_2,.icon_level.orange_3,.icon_level.orange_4,.icon_level.orange_5{background-position:0 -1.9rem;}
+.icon_level.star_1,.icon_level.red_1,.icon_level.blue_1,.icon_level.orange_1{width:0.825rem;}
+.icon_level.star_2,.icon_level.red_2,.icon_level.blue_2,.icon_level.orange_2{width:1.65rem;}
+.icon_level.star_3,.icon_level.red_3,.icon_level.blue_3,.icon_level.orange_3{width:2.475rem;}
+.icon_level.star_4,.icon_level.red_4,.icon_level.blue_4,.icon_level.orange_4{width:3.3rem;}
+.icon_level.star_5,.icon_level.red_5,.icon_level.blue_5,.icon_level.orange_5{width:4.125rem;}
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>付款</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
+    <script type="text/javascript" src="js/m-1.0.0.js"></script>
+    <script type="text/javascript" src="js/m-reactive.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pay.css"/>
+</head>
+<body>
+<div class="kfz-layout ">
+    <header class="kfz-header">
+        <a href="javascript:;" class="back_ico f_left"></a>
+        <h3 class="">付款</h3>
+    </header>
+    <section class="payment_box clearfix">
+        <div class="select_text">
+            <div class="left">请选择支付方式</div>
+            <div class="right">30.00元</div>
+        </div>
+        <div class="payment_list">
+            <div class="item">
+                <div class="left">
+                    <div class="icon_pay img"></div>
+                    <div class=" text">
+                        <div class="account">孔网资金账户</div>
+                        <div class="info">
+                            <span class="balance">余额：20.00元</span> <span>无手续费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix icon_pay right"></div>
+            </div>
+            <div class="item item_02">
+                <div class="left">
+                    <div class="icon_pay img"></div>
+                    <div class="text">
+                        <div class="account">支付宝</div>
+                        <div class="info">
+                            <span>支付宝收取0.6%的手续费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon_pay right checked"></div>
+            </div>
+            <div class="item item_03">
+                <div class="left">
+                    <div class="icon_pay img"></div>
+                    <div class="text">
+                        <div class="account">银联支付</div>
+                        <div class="info">
+                            <span>银联收取1%的手续费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon_pay right"></div>
+            </div>
+        </div>
+        <div class="submit">
+            <em class="first_text">付</em> <em>款</em>
+        </div>
+    </section>
+
+    <div class="input_pay_password" style="display: block">
+        <div class="title">请输入支付密码</div>
+        <input class="password"/>
+        <div class="button">
+            <div class="close"><em class="first_text">取</em><em>消</em></div>
+            <div class="pay"><em class="first_text">付</em> <em>款</em></div>
+        </div>
+    </div>
+
+    <div class="password_error" style="display: block">
+        <div class="title">您输入的支付密码不正确</div>
+        <div class="tip">您还有<em>3</em>次重新输入的机会</div>
+        <div class="button">
+            <div class="left">
+                重新输入
+            </div>
+            <div class="right">
+                忘记支付密码
+            </div>
+        </div>
+    </div>
+
+
+    <div class="account_lock_tip" style="display: block">
+        <div class="title">您的资金账户已锁定</div>
+        <div class="tip">您可以联系孔网客服 010-64755951</div>
+        <div class="button">
+            我知道了
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

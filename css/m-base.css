@@ -1,0 +1,90 @@
+*,
+::before,
+::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+
+input, textarea {
+    outline: 0;
+    resize: none;
+}
+a{text-decoration:none;color:#333333}
+.clearfix, .content {
+}
+.clearfix:before, .clearfix:after, .content:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.clearfix:after {
+    clear: both;
+}
+.clear {
+    clear: both;
+}
+.f_left{float:left}
+.f_right{float:right}
+.m_l04{margin-left:0.4rem}
+.m_r04{margin-right:0.4rem}
+.m_t04{margin-top:0.4rem}
+.m_b04{margin-bottom:0.4rem}
+.p_l04{padding-left:0.4rem}
+.p_r04{padding-right:0.4rem}
+.p_t04{padding-top:0.4rem}
+.p_b04{padding-bottom:0.4rem}
+.gray{font-size:0.5rem;color:#6b6b6b;}
+.red{font-size:0.5rem;color:#a91717;}
+.loading{height:0.65rem;width:0.65rem;display:inline-block;background:url(../../../image/loading.gif) center center no-repeat;background-size:0.65rem;}
