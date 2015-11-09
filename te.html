@@ -1,23 +1,265 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>前端面试机试试题</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<style>
- *{background-color:red;}
+    <title>付款</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
+    <script type="text/javascript" src="js/zepto/zepto.js"></script>
+    <script type="text/javascript" src="js/zepto/fx_methods.js"></script>
+    <script type="text/javascript" src="js/zepto/iscroll.js"></script>
+    <script type="text/javascript" src="js/zepto/selector.js"></script>
+    <script type="text/javascript" src="js/zepto/fx.js"></script>
+    <script type="text/javascript" src="js/zepto/assets.js"></script>
+    <script type="text/javascript" src="js/m-1.0.0.js"></script>
+    <script type="text/javascript" src="js/m-reactive.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
+    <style>
+        #moreChangeContent{
+            position: absolute;
+            z-index: 33333;
+            background: #fff;
 
-</style>
-</head>
-<script  type="text/javascript">
+        }
+        .kfz-view{
+            background: #000;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 22;
+            top: 0;
+            opacity: 0.4;
+        }
+       .test2{
+           margin-bottom: 0.5rem;
+       }
+       .test{
+           height: 2rem;
+           border-bottom: 1px solid red;
+           line-height: 1.6rem;
+           text-align: center;
+       }
+        .test2 .test:first-child{
+            border-top:1px solid red;
+        }
+        .test2 .test:last-child{
+            border-bottom:1px solid red;
+        }
+       .test .star_1{
+           position: relative;;
+           margin-top: -0.075rem;
 
-  alert(33333);
- 
- 
+       }
+        .test span{font-size: 0.6rem}
+    </style>
+<body>
+<div class="kfz-layout">
+    <header class="kfz-header">
+        <a href="" class="logo"><img src="http://mshop.kfz.com//images/m/logo_index.gif"></a>
+        <div class="area"><a href="">书店区</a></div>
+        <div class="ico">
+            <a href="javascript:;" class="search_ico f_left"></a>
+            <a href="javascript:;" class="user_ico f_left"></a>
+            <a href="javascript:;" class="nav_ico f_left" id="navShow"></a>
+        </div>
+        <div class="nav" id="navHeaderShow">
+            <div class="nav_box clearfix">
+                <a href="#">购物车</a>
+                <a href="http://mshop.kfz.com//order/list">我的订单</a>
+                <a href="#">个人中心</a>
+                <a href="#">我的消息</a>
+                <a href="#">资金平台</a>
+            </div>
+            <div class="nav_box clearfix">
+                <a href="#">网站首页</a>
+                <a class="p_l04" href="http://mshop.kfz.com/">书店区</a>
+                <a class="p_l04 p_r04" href="http://www.kfz.cn/">在线拍卖</a>
+                <a class="p_l04 p_r04" href="http://zixun.kfz.com/">资讯</a>
+                <a class="p_l04" href="http://shequ.kfz.com/">社区</a>
+            </div>
+            <div class="up_icon" id="hideHeaderBtn"></div>
+        </div>
+    </header>    <section>
+    <div class="shop-header">
+        <div class="shop-header-top">
+            <h3 class="shop_name p_t04">好书好画书斋123</h3>
+            <div class="sp-center m_t01 m_b01"><i class="icon_level star_1"></i></div>
+            <p class="sp-white sp-center"><span class="m_r04">好评率：0</span><span>信誉：0</span></p>
+            <p class="sp-white sp-center">店主昵称：东北狠人12</p>
+            <div class="sp-center"><span class="icon_online"></span></div>
+        </div>
+        <div class="shop-header-yy"></div>
+        <div class="shop-header-bot">
+            <a href="http://mshop.kfz.com/1/" class="shop_index now">店铺首页</a>
+            <a href="http://mshop.kfz.com/1/all/" class="all_product">全部商品</a>
+            <a href="http://mshop.kfz.com/1/new/" class="new_product">最新上架</a>
+            <a href="javascript:;" class="more_change" id="moreChange">更多栏目</a>
+        </div>
+        <div class="shop-header-fav">收藏</div>
+    </div>
+</section>
+   <!-- <div class="more_change_content" style="display: none" id="moreChangeContent">
+        <div class="arrow" ></div>
+        <div class="line"><a href="">珍本图书</a><a href="">特色地理风水秘笈</a> <a href="">奇门异术魔法秘本</a></div>
+        <div class="line"><a href="">推荐商品</a><a href="">店铺公告</a><a href="">店铺简介</a></div>
+    </div>-->
+    <div  style="display: none" id="moreChangeContent">
+        <div class="more_change_content">
+            <div class="arrow" ></div>
+            <div class="line"><a href="">珍本图书</a><a href="">特色地理风水秘笈</a> <a href="">奇门异术魔法秘本</a></div>
+            <div class="line"><a href="">推荐商品</a><a href="">店铺公告</a><a href="">店铺简介</a></div>
+        </div>
+    </div>
+    <div class="line_gray"></div>
+    <section class="shop-search">
+        <input type="text">
+        <a href="#" class="icon_search">查找店内商品</a>
+    </section>
+    <section class="kfz-layout-con">
+        <div class="tit feature">本店特色分类</div>
+        <div class="shop-cat">
+            <ul class="clearfix">
+                <li><a href="http://mshop.kfz.com/1/cat_6/" target="_blank">
+                    <p class="text1">外文旧书</p><p class="text2">(2)</p></a></li>
+                <li><a href="http://mshop.kfz.com/1/cat_9/" target="_blank">
+                    <p class="text1">民国旧书</p><p class="text2">(8)</p></a></li>
+            </ul>
+        </div>
+    </section>
+    <div class="line_gray"></div>
+    <section class="kfz-layout-con">
+        <div class="shop-product">
+            <div class="tit">推荐商品</div>
+            <div class="shop-product-box">
+                <ul class="clearfix">
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2362/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2362/">李兆麟传奇</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2363/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2363/">黄显声传奇</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2364/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2364/">赵尚志传奇</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2368/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2368/">主题班会理论与实践:21世纪新探</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                </ul>
+                <a href="http://mshop.kfz.com/1/rare/" class="more">查看更多推荐商品</a>
+            </div>
+        </div>
+        <div class="shop-product">
+            <div class="tit">珍本图书</div>
+            <div class="shop-product-box">
+                <ul class="clearfix">
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2373/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2373/">教育学教程</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2376/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2376/">教师职业道德论</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2381/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2381/">教育学:问题与实践的新视角</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                    <li>
+                        <a href="http://mbook.kfz.com/1/2382/"><img data-url="http://mshop.kfz.com/"></a>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/2382/">语文教育论稿</a></p>
+                        <p class="text2">0.01</p>
+                    </li>
+                </ul>
+                <a href="http://mshop.kfz.com/1/rare/" class="more">查看更多珍本图书</a>
+            </div>
+        </div>
+        <div class="shop-product">
+            <div class="tit">最新上架</div>
+            <div class="shop-product-box word">
+                <ul class="clearfix">
+                    <li>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/15273/">封神演义</a></p>
+                        <p class="text2">1000.00<span class="f_right">2015-09-28</span></p>
+                    </li>
+                    <li>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/15269/">gewgewg</a></p>
+                        <p class="text2">22.00<span class="f_right">2015-08-28</span></p>
+                    </li>
+                    <li>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/15268/">gewgewg</a></p>
+                        <p class="text2">22.00<span class="f_right">2015-08-28</span></p>
+                    </li>
+                    <li>
+                        <p class="text1"><a href="http://mbook.kfz.com/1/15267/">测试124234</a></p>
+                        <p class="text2">12.00<span class="f_right">2015-08-25</span></p>
+                    </li>
+                </ul>
+                <a href="http://mshop.kfz.com/1/new/" class="more">查看更多最新上架</a>
+            </div>
+        </div>
+    </section>
+    <div class="test2">
+        <div class="test">
+            <span>关于孔夫子</span>
+            <span class="icon_level star_1"></span>
+        </div>
+        <div class="test">
+            <span>关于孔夫子2</span>
+            <span class="icon_level star_1"></span>
+        </div>
+        <div class="test">
+            <span>关于孔夫子3</span>
+            <span class="icon_level star_1"></span>
+        </div>
+    </div>
+    <footer class="kfz-footer">
+        <ul class="clearfix">
+            <li><a href="http://www.kongfz.com/help/aboutus.php">关于孔夫子</a></li>
+            <li><a href="http://www.kongfz.com/help/lianxi.html">联系我们</a></li>
+            <li><a href="http://help.kongfz.com/">网站帮助</a></li>
+            <li><a href="http://www.kongfz.com/help/copyright.php">版权隐私</a></li>
+            <li><a href="http://www.kongfz.com/help/guanggao.php">广告业务</a></li>
+            <li><a href="http://m.kongfz.com/book/">图书目录</a></li>
+            <li><a href="http://www.kongfz.com/help/zhaopin.php">诚聘英才</a></li>
+            <li><a href="http://www.kongfz.com/app/sitemap.php">网站地图</a></li>
+        </ul>
+        <div class="foot_bot">
+            <p>Copyright©  孔夫子旧书网  2002-2015 , All  Rights  Reserved  京ICP证041501号</p>
+            <p>海淀分局备案编号 1101082227</p>
+        </div>
+    </footer></div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#moreChange").on("click",function(){
+            console.log(6666)
+            KFZ.mobile.Dialog({
+                context:$("#moreChangeContent").html(),
+                afterOpen:function(){
+                    var that = this;
+
+                }
+            });
+        });
+
+
+    });
 </script>
 
-<body >
-
- <input type='text' value='22' id='sss'/>
-
-<!-- End ImageReady Slices -->
-</body>
-</html>
+</body></html>

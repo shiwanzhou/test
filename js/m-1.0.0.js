@@ -910,6 +910,8 @@ KFZ.mobile.Dialog.prototype = {
         TITLE:'温馨提示'
     },
     init:function(args){
+       console.log(2222);
+       console.log(args);
         this.screenWidth = window.innerWidth;
         this.screenHeight = window.innerHeight;
         this.width = args.width || this.config.width;
@@ -928,6 +930,8 @@ KFZ.mobile.Dialog.prototype = {
 
     },
     template:function(){
+        console.log(2222);
+        console.log(4444444444);
         this.template  = '';
         if(!$('.kfz-overlay').length){
             this.template += '<div class="kfz-overlay"></div>'
