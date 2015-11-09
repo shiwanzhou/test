@@ -10,10 +10,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
     <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/m-1.0.0.js"></script>
     <script type="text/javascript" src="js/m-reactive.js"></script>
     <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
     <link rel="stylesheet" type="text/css" href="css/pay.css"/>
+    <style>
+
+        #tip{
+            position: absolute;
+            z-index: 33333;
+            background: #fff;
+            width: 100%;
+        } #tip{
+              position: absolute;
+              z-index: 33333;
+              background: #fff;
+              width: 100%;
+          }
+        .kfz-view{
+            background: #000;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 22;
+            top: 0;
+            opacity: 0.4;
+        }
+        .arrow{
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #fff;
+            position: absolute;
+            z-index: 33333;
+            top: -0.275rem;
+            left: 11.7rem;
+        }
+    </style>
 </head>
 <body>
 <div class="kfz-layout ">
@@ -25,6 +60,12 @@
         <div class="select_text">
             <div class="left">请选择支付方式</div>
             <div class="right">30.00元</div>
+            <div class="right" id="btn">按钮</div>
+        </div>
+        <div class="account_lock_tip" style="display: none;;height: 5rem" id="tip">
+            <div class="arrow"></div>
+            <div class="title">您的资金账户已锁定</div>
+            <div class="tip">您可以联系孔网客服 010-64755951</div>
         </div>
         <div class="payment_list">
             <div class="item">
@@ -69,40 +110,32 @@
         </div>
     </section>
 
-    <div class="input_pay_password" style="display: block">
-        <div class="title">请输入支付密码</div>
-        <input class="password"/>
-        <div class="button">
-            <div class="close"><em class="first_text">取</em><em>消</em></div>
-            <div class="pay"><em class="first_text">付</em> <em>款</em></div>
-        </div>
-    </div>
-
-    <div class="password_error" style="display: block">
-        <div class="title">您输入的支付密码不正确</div>
-        <div class="tip">您还有<em>3</em>次重新输入的机会</div>
-        <div class="button">
-            <div class="left">
-                重新输入
-            </div>
-            <div class="right">
-                忘记支付密码
-            </div>
-        </div>
-    </div>
 
 
-    <div class="account_lock_tip" style="display: block">
-        <div class="title">您的资金账户已锁定</div>
-        <div class="tip">您可以联系孔网客服 010-64755951</div>
-        <div class="button">
-            我知道了
-        </div>
-    </div>
+
+
 
 
 </div>
+<div class="kfz-view" style="display: none">
 
-
+</div>
+<script>
+    $(function(){
+        $("#btn").on("click",function(){
+            if($(this).hasClass("show")){
+                $(".kfz-view").hide();
+                $("#tip").hide();
+            }else{
+                $(".kfz-view").show();
+                $("#tip").show();
+            }
+        });
+        $(".kfz-view").on("click",function(){
+            $(this).hide();
+            $("#tip").hide();
+        });
+    })
+</script>
 </body>
 </html>
