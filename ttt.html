@@ -52,7 +52,7 @@
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/icon_pay.png"></div>
+            <div class="swiper-slide"><img src="images/icon_pay.png" ></div>
             <div class="swiper-slide"><img src="images/m/bg_shop_index.jpg"></div>
             <div class="swiper-slide">Slide 3</div>
             <div class="swiper-slide">Slide 4</div>
@@ -66,8 +66,10 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
-
+    <img src="images/icon_pay.png" id="test">
     <!-- Swiper JS -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jgestures.js"></script>
     <script src="js/swiper.min.js"></script>
 
     <!-- Initialize Swiper -->
@@ -80,6 +82,22 @@
         autoplay: 2500,
         autoplayDisableOnInteraction: false
     });
+    $('#test').bind('pinchopen',function(){
+
+       alert(888)
+
+    });
+    $('#test').bind('pinchclose',function(){
+
+        alert(887778)
+
+    });
+    $('#test').bind('click',function(){
+
+
+         console.log(888)
+    });
+
     </script>
 </body>
 </html>
