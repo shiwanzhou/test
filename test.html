@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>我的订单_个人中心_孔夫子旧书网</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <script src="../asset/new/js/zepto.js"></script>
+    <script src="../asset/new/js/m-1.0.0.js"></script>
+</head>
+<body id="page_order_list" style="">
+
+ddddd
+
+<script>
+
+$(function(){
+    KFZ.util.unicodeToChar = function(unicode) {
+        if (typeof unicode === 'undefined') return '';
+        var str = '', arr = unicode.split('k'), i = 0, len = arr.length;
+        for (; i < len; i ++) {
+            var oneUnicode = arr[i], oneStr;
+            if (!oneUnicode) continue;
+            oneUnicode = parseInt(oneUnicode, 16).toString(10);
+            oneStr = String.fromCharCode(oneUnicode);
+            str += oneStr;
+        }
+        return str;
+    };
+    KFZ.common.getKey = function(Obj,value){
+        var key = '';
+        if(Obj && value){
+            $.each(Obj,function(k,v) {
+                if (v == value) {
+                    key = k||'';
+                    return;
+                }
+            });
+        }
+        return key;
+    }
+
+    var paramDicA = {           // 数据字典
+        catNum:'cat_',	    // 分类编号
+        isImg:'img_',	    // 图文 1 2
+        nickName:'l',         // 作者
+        press:'m',          // 出版社
+        years:'n',          // 年代
+        special1:'o',	    // 著录项1
+        special2:'p',	    // 著录项2
+        special3:'q',	    // 著录项3
+        itemName:'s',       // 书名称
+        price:'t',          // 店主昵称
+        shopName:'r',       // 店铺名称
+        order:'v',          // 排序
+        pageNum:'w',        // 分页
+        xkey:'x',          // 排除关键字
+        key:'z',            // 关键字
+        area:'u'            //地区
+    }
+
+
+    function getRequestDataByUrl(){
+        var params = _getParams('array'),
+                paramDic = paramDicA,
+                requestData = {};
+        params && $.each(params,function(i,item){
+            var op  = params[i],
+                    opk = op.substr(0, 1),
+                    value = '';
+            console.log( params[i]);
+            if (op.match('cat_')) return;
+            if (op.match('img_')) opk = 'img_';
+
+            if( opk =='t' || opk == 'u' || opk == 'v' || opk == 'w'){
+                value = op.substr(1);
+            }else if(opk == 'img_'){
+                value = op.replace('img_','');
+            }else{
+                value = op.substr(1);
+                if(/l|m/.test(opk)){
+                    value = value.replace(/[\d]*h/, "");
+                }
+                if(value) value = KFZ.util.unicodeToChar(value);
+            }
+            var key = KFZ.common.getKey(paramDic,opk);
+            if(key)requestData[key] = value;
+        });
+        console.log(requestData);
+        return requestData;
+    }
+
+
+    function getNewUrl(requestData){
+        var params = _getParams('array'),
+                requestData = requestData == undefined ?{} :requestData;
+        console.log(params);
+        for (var k in requestData) {
+            var fpk = requestData[k],
+                    hasIt = 0;	                    // 判断是否地址栏里已存在此参数的标识位
+            if (fpk === undefined) continue;	// 当fpk为undefined时
+            for (var i = 0; i < params.length; i ++) {
+                var op  = params[i],
+                        opk = op.substr(0, 1)
+                if (op === "cat_") continue;
+                // 去分页参数
+                if (opk === "w") {
+                    params[i] = "";
+                    continue;
+                }
+                console.log(opk);
+                console.log(k);
+                // 判断是否地址栏里已存在此参数
+                if (opk === k) {
+                    if (fpk === "") {
+                        params[i] = "";
+                    } else {
+                        if( k=='t' || k == 'u'){
+                            params[i] = k + fpk;
+                        }else{
+                            fpk = KFZ.util.charToUnicode(fpk);
+                            var isLM = /l|m/.test(k);
+                            if (op.substr(1).replace(/[\d]*h/, "") !== fpk) {	// 判断其值是否有改动
+                                params[i] = k + (isLM ? "h" : "") + fpk;
+                            }
+                        }
+                    }
+                    hasIt = 1;
+                    break;
+                }
+            }
+            if (!hasIt) {
+                if (fpk === "") {
+                    params[params.length] = "";
+                } else {
+                    if( k=='t' || k == 'u'){
+                        params[params.length] = k + fpk;
+                    }else {
+                        fpk = KFZ.util.charToUnicode(fpk);
+                        var isLM = /l|m/.test(k);
+                        params[params.length] = k + (isLM ? "h" : "") + fpk;
+                    }
+                }
+            }
+        }
+        console.log(params);
+        var pathname = params.join("");
+        console.log(pathname);
+        return pathname;
+    }
+
+
+
+    function _getParams(type,url){
+        var pathname = "/product/cat_10002img_1v7xk33";
+        if(url && url != undefined){
+            pathname = url;
+        }
+        pathname = pathname.replace(/\/product\//, "");      //对当前url适配，防止url未修改，针对product
+        pathname = pathname.replace(/v6g0/, "");      //对当前url适配，防止url未修改，针对product
+        pathname = pathname.replace(/\/author\//, "");       //对当前url适配，防止url未修改，针对author
+        pathname = pathname.replace(/(C[0-9a-z]*\/)/g,"");   //去除一级分类
+        pathname = pathname.replace(/\/$/, "");
+        pathname = pathname.replace(/^\//, "");
+        //根据所需类型返回
+        if(type && type == 'array'){
+            pathname = pathname.toLowerCase()
+                    .replace(/(cat_|img_|[l-z])/ig, '-$1')
+                    .replace(/ca-t_/, 'cat_')
+                    .replace(/^-/, '');
+            return pathname?pathname.split('-'):[];
+        }else{
+            return pathname || "";
+        }
+    }
+    var urlLastParam = _getParams().replace(/v\d+/,'')+'v'+"5";
+
+    var urlLastParam2 = _getParams().replace(/img_\d+/,'')+'img_'+2;
+
+    var urlLastParam3 = _getParams('string',"/Cqikan/img_1v7");
+
+
+    /*获取新的url最后一级别参数*/
+    var urlLastParam4 = getNewUrl({"x":"6"})
+    /*获取新url的pathname*/
+    var pathArr = "/product/cat_10002img_1v7xk33".split("/");
+    var firstLevelClass = "";
+    if(pathArr[1] != "" ){
+        firstLevelClass = pathArr[1];
+    }
+    var newPathName = firstLevelClass+"/"+urlLastParam4
+
+
+    var pathArr66 = "cat_10002img_1v7xk33".toLowerCase()
+            .replace(/(cat_|img_|[l-z])/ig, '-$1');
+
+    console.log(pathArr66);
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+</script>
+</body>
+</html>
