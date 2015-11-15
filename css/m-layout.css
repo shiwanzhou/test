@@ -47,7 +47,7 @@ html * {
 .line_gray{height:0.75rem;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#f0f0f0}
 
 /*等级*/
-.icon_level{background:url("../../img/icon_level.png") repeat-x;background-size:0.825rem;height:0.6rem;display:inline-block}
+.icon_level{background:url("../images/m/icon_level.png") repeat-x;background-size:0.825rem;height:0.6rem;display:inline-block}
 .icon_level.star_1,.icon_level.star_2,.icon_level.star_3,.icon_level.star_4,.icon_level.star_5{background-position:0 0;}
 .icon_level.red_1,.icon_level.red_2,.icon_level.red_3,.icon_level.red_4,.icon_level.red_5{background-position:0 -0.6rem;}
 .icon_level.blue_1,.icon_level.blue_2,.icon_level.blue_3,.icon_level.blue_4,.icon_level.blue_5{background-position:0 -1.2rem;}
