@@ -32,7 +32,7 @@
             if(p_w < 300){
                 fz = p_w/16;
             }else if(p_w >= 300 && p_w <= 640){
-                fz = p_w/11.6;
+                fz = p_w/12;
             }else{
                 fz = 40;
             }
