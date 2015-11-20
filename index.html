@@ -1,107 +1,91 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+<extend name="Common:base"/>
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+<block name="seo">
+    <title><{:C('SITE_TITLE')}></title>
+    <meta name="keywords" content="<{:C('SITE_KEYWORDS')}>"/>
+    <meta name="description" content="<{:C('SITE_DESCRIPTION')}>"/>
+</block>
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Test by shiwanzhou</title>
-  </head>
-
-  <body>
-    <a id="forkme_banner" href="https://github.com/shiwanzhou/test">View on GitHub</a>
-    <div class="shell">
-
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Test</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/shiwanzhou/test/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/shiwanzhou/test/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+<block name="head">
+    <link href="__ASSET__/css/zizhu/zhsy.css?__VERSION__" rel="stylesheet" type="text/css"/>
+</block>
 
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <div>
-    <ul>
-<li>
-          首页
-        </li>
-        <li>
-          鲜花
-            <div>
-                    <dl>
-<dt>配送城市</dt>
-                        <dd>
-<img src="image/nn.png">北京<img src="image/nn.png">上海</dd>
-                        <dd>
-<img src="image/nn.png">深圳<img src="image/nn.png">广州</dd>
-                        <dd>
-<img src="image/nn.png">武汉<img src="image/nn.png">重庆</dd>
-                        <dd>
-<img src="image/nn.png">新疆<img src="image/nn.png">四川</dd>
-                        <dd>
-<img src="image/nn.png">湖北<img src="image/nn.png">湖南</dd>
-                        <dd>
-<img src="image/nn.png">山东<img src="image/nn.png">山西</dd>
-                        <dd>
-<img src="image/nn.png">太晚<img src="image/nn.png">更多</dd>
-
-                    </dl>
-</div>
-        </li>
-        <li>
-          蛋糕
-        </li>
-        <li>
-          李兰
-        </li>
-        <li>
-            <samp></samp>
-            上午鲜花
-        </li>
-    </ul>
-</div>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/shiwanzhou">shiwanzhou</a> can be found on <a href="https://github.com/shiwanzhou/test">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
+<block name="container">
+    <div class="nav">
+        <span class="common ico"></span>
+        <span class="first">账户首页</span>
     </div>
+    <div class="left">
+        <div class="balance">
+            <span class="first">当前您的账户余额为：<span><{$userinfo.bankmoney}></span>元</span><span class="last">[&nbsp;<a href="tencent://Message/?Uin=279604661&websiteName=q-zone.qq.com&Menu=yes">充&nbsp;值</a>&nbsp;]</span>
+        </div>
+        <ul class="sum">
+            <if condition="isset($cps_list)">
+                <volist name="cps_list" id="vo">
+                    <li class="sum_li">
+                        <div class="top">
+                            <span class="zm">[<{$vo.paystatus}>]</span><span class="name"><{$vo.name}></span>
+                        </div>
+                        <ul class="small">
+                            <li class="itm_0">指标</li>
+                            <li class="itm_1">昨天</li>
+                            <li class="itm_2">前天</li>
+                            <li class="itm_3">本周</li>
+                        </ul>
+                        <ul class="smaller">
+                            <li class="itm_0">激活</li>
+                            <li class="itm_1"><{$vo.yesterday}></li>
+                            <li class="itm_2"><{$vo.before_yesterday}></li>
+                            <li class="itm_3"><{$vo.week}></li>
+                        </ul>
+                    </li>
+                </volist>
+            </if>
+        </ul>
+        <div class="pagers">
+            <div class="pager"><{$show}></div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="box special">
+            <div class="top">
+                <span>站内通知</span>
+                <a class="more" href="<{:URL('notice/index')}>">MORE</a>
+            </div>
+            <ul>
+                <volist name="messagelist" id="vo">
+                    <li class="itm_<{$i+2}>">
+                    <a href="<{:URL('/notice/detail/@zizhu', array('id'=>$vo['id']))}>"><em>·</em><span><{$vo.message|msubstr=0,15}></span></a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="top">
+                <span>常见问题</span>
+                <a class="more" href="<{:URL('question/index')}>">MORE</a>
+            </div>
+            <ul>
+                <volist name="newslist" id="vo">
+                    <li>
+                        <a href="<{:URL('/question/detail/@zizhu', array('id'=>$vo['id']))}>"><em>·</em><span><{$vo.title|msubstr=0,15}></span></a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</block>
 
-    
-  </body>
-</html>
+<block name="bottom">
+    <script type="text/javascript">
+        $(".biaoge ul li").on("mouseover",function(){
+            $(this).children("a").addClass("color");
+            $(this).children(".time").addClass("color");
+        })
+        $(".biaoge ul li").on("mouseout",function(){
+            $(this).children("a").removeClass("color");
+            $(this).children(".time").removeClass("color");
+        })
+    </script>
+</block>
