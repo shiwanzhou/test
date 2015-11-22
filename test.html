@@ -3,11 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-		<title>Neue Digitale / Razorfish GmbH - jGestures Demo</title>
+		<title>No</title>
 
-		<!-- meta -->
-		<meta name="language" content="en" />
-		<meta name="robots" content="index, follow" />
 
 		<!-- script -->
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
@@ -107,7 +104,7 @@
 
  	<script>$(document).ready(function () {
            $(window).bind('shakeupdown',function(event_,data_){
-				//alert('shake: '+ data_.description)
+				alert('shake: '+ data_.description)
 			})
 		})
  	</script>
@@ -174,18 +171,18 @@ function manipulate(event_, obj) {
 $(document).ready(function() {
 
 
-	$('#tap').bind('tapone',log);
+	/*$('#tap').bind('tapone',log);
 	$('#tap').bind('taptwo',log);
 	$('#tap').bind('tapthree',log);
-	$('#tap').bind('tapfour',log);
+	$('#tap').bind('tapfour',log);*/
 
 
-	$('#swipe').bind('swipeone',log);
+	/*$('#swipe').bind('swipeone',log);
 	$('#swipe').bind('swipetwo',log);
 	$('#swipe').bind('swipethree',log);
-	$('#swipe').bind('swipefour',log);
+	$('#swipe').bind('swipefour',log);*/
 
-	$('#swipe').bind('swipeup',log);
+/*	$('#swipe').bind('swipeup',log);
 	$('#swipe').bind('swiperightup',log);
 	$('#swipe').bind('swiperight',log);
 	$('#swipe').bind('swiperightdown',log);
@@ -193,18 +190,13 @@ $(document).ready(function() {
 	$('#swipe').bind('swipedown',log);
 	$('#swipe').bind('swipeleftdown',log);
 	$('#swipe').bind('swipeleft',log);
-	$('#swipe').bind('swipeleftup',log);
+	$('#swipe').bind('swipeleftup',log);*/
 
 	$('#change').bind('pinchopen',manipulate);
 	$('#change').bind('pinchclose',manipulate);
-	$('#change').bind('rotatecw',manipulate);
-	$('#change').bind('rotateccw',manipulate);
- 	$('#change').bind('swipeone',manipulate);
 
-	$('#livechange').bind('swipeone',manipulate);
-	$('#livechange').bind('swipemove',manipulate);
 	$('#livechange').bind('pinch',manipulate);
-	$('#livechange').bind('rotate',manipulate);
+
 
 })
  </script>
