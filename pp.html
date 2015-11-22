@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>付款</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/m-reactive.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
+<body>
+<div class="kfz-layout">
+
+  <div class="area" ><img  id="area" src="../images/m/shop_area1.jpg"></div>
+</div>
+
+<script type="text/javascript" src="js/jgestures.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#area').on('tap',function(){
+           $(this).width(500);
+           $(this).height(500);
+        });
+    });
+</script>
+
+</body>
+</html>

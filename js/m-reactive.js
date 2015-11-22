@@ -32,14 +32,14 @@
             if(p_w < 300){
                 fz = p_w/16;
             }else if(p_w >= 300 && p_w <= 640){
-                fz = p_w/16;
+                fz = p_w/12.8;
             }else{
                 fz = 40;
             }
             that.htmlObject.style.fontSize = fz+'px';
             window.fontSize = fz;
             //window.scrollTo(0, 1);
-        }
+         }
     };
     w.initScreen = new initScreen();
 })(window,document);
