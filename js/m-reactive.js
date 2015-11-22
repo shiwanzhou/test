@@ -32,11 +32,7 @@
             if(p_w < 300){
                 fz = p_w/16;
             }else if(p_w >= 300 && p_w <= 640){
-<<<<<<< HEAD
                 fz = p_w/12.8;
-=======
-                fz = p_w/14;
->>>>>>> origin/gh-pages
             }else{
                 fz = 40;
             }
