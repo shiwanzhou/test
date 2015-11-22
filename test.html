@@ -13,7 +13,13 @@
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/m-reactive.js"></script>
     <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
-  
+    <style>
+        #test_area_three{
+            width: 5rem;
+            height: 5rem;;
+            margin: 0 auto;
+        }
+    </style>
 <body>
 <div class="kfz-layout">
     <div class="area" ><img  id="fff" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
@@ -74,12 +80,12 @@
                     break;
             }
         }
-        $('#test_area').bind('touchy-drag', handleTouchyDrag);
+       // $('#test_area').bind('touchy-drag', handleTouchyDrag);
 
         var handleTouchySwipe = function (e, $target, data) {
             $target.html(data.direction);
         }
-        $('#test_area_three').bind('touchy-swipe', handleTouchySwipe);
+       // $('#test_area_three').bind('touchy-swipe', handleTouchySwipe);
 
         var handleTouchyPinch = function (e, $target, data) {
             var scale = data.scale;
@@ -90,7 +96,7 @@
         var handleTouchyLongpress = function (e, phase, $target) {
             $target.html('long');
         }
-        $('#test_area_three').bind('touchy-longpress', handleTouchyLongpress);
+      //  $('#test_area_three').bind('touchy-longpress', handleTouchyLongpress);
 
         var degs = 0;
         var handleTouchyRotate = function (e, phase, $target, data) {
@@ -101,7 +107,10 @@
             }
         }
 
-        $('#test_area_two').bind('touchy-rotate', handleTouchyRotate);
+     //   $('#test_area_two').bind('touchy-rotate', handleTouchyRotate);
+
+
+
 
 
 
