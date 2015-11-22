@@ -59,9 +59,11 @@
             $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
             e.stopPropagation();
             e.preventDefault()
-            $target.data('touchyPinch').settings.preventDefault.start = false;
-            $target.data('touchyPinch').settings.preventDefault.move = false;
-            $target.data('touchyPinch').settings.preventDefault.end = false;
+            $(windwo).bind("scroll",function(){
+                $target.data('touchyPinch').settings.preventDefault.start = false;
+                $target.data('touchyPinch').settings.preventDefault.move = false;
+                $target.data('touchyPinch').settings.preventDefault.end = false;
+            })
         }
 
 
@@ -69,7 +71,7 @@
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
 
         // console.log( $('#test_area_three').data('touchyPinch'))
-       
+
 
     })();
 </script>
