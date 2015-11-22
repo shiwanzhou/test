@@ -57,16 +57,23 @@
         var handleTouchyPinch = function (e, $target, data) {
             var scale = data.scale;
             $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
-           
+            e.stopPropagation();
+            e.preventDefault()
+
         }
 
-       var touchTimeout = setTimeout(handleTouchyPinch, 250);
 
         $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
-        $(window).bind('scroll',function(){
-            if (touchTimeout) clearTimeout(touchTimeout)
-        })
+
+        // console.log( $('#test_area_three').data('touchyPinch'))
+        var enableScrolling = function () {
+            // Enable scrolling
+            $('#test_area_three').data('touchyPinch').settings.preventDefault.start = false;
+            $('#test_area_three').data('touchyPinch').settings.preventDefault.move = false;
+            $('#test_area_three').data('touchyPinch').settings.preventDefault.end = false;
+        };
+       $(window).bind("scroll",enableScrolling)
 
     })();
 </script>
