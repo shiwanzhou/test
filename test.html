@@ -63,6 +63,8 @@
                 $target.data('touchyPinch').settings.preventDefault.start = false;
                 $target.data('touchyPinch').settings.preventDefault.move = false;
                 $target.data('touchyPinch').settings.preventDefault.end = false;
+                $target.unbind('touchy-pinch', handleTouchyPinch);
+                $target.bind('touchy-pinch', handleTouchyPinch);
             })
         }
 
