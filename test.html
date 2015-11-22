@@ -51,6 +51,7 @@
             $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
             e.stopPropagation();
         }
+        $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
 
     })();
