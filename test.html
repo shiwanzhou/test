@@ -10,100 +10,9 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jgestures.js"></script>
 
-		<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			font: arial normal 11px/1.5;
-
-		}
-		li {
-			list-style: none;
-		}
-
-		#logger {
-			position: absolute;
-			opacity: 0.75;
-			top:0;
-			left:0;
-			z-index:1;
-			background: #eee;
-			width: 200px;
-			padding: 5px;
-			-moz-box-shadow: 2px 2px 5px #000;
-			-webkit-box-shadow: 2px 2px 5px #000;
-
-		}
-
-		.gesturechange {
-			background: #eee;
-			border: 1px solid #ccc;
-			padding: 5px 2%;
-			width: 44%;
-			height: 175px;
-			position: absolute;
-			margin: 0 2% 0 1%;
-			left: 0%;
-			top:10px;
-			overflow: hidden;
-			-webkit-transition: all;
-		}
-
-		.gestureend {
-			background: #eee;
-			border: 1px solid #ccc;
-			padding: 5px 2%;
-			width: 44%;
-			height: 175px;
-			position: absolute;
-			margin: 0 2% 0 1%;
-			left: 50%;
-			top:10px;
-			-webkit-transition: all 1s ease-out;
-			overflow: hidden;
-
-		}
-		.swipe {
-			clear: left;
-			background: #ccc;
-			border: 1px solid #eee;
-			padding: 5px 2%; ;
-			width: 94%;
-			height: 150px;
-			position: absolute;
-			margin: 0 2% 0 1%;
-			left: 0%;
-			top:210px;
-
-		}
-		.tap {
-			clear: left;
-			background: #ccc;
-			border: 1px solid #eee;
-			padding: 5px 2%;
-			width: 94%;
-			height: 150px;
-			position: absolute;
-			margin: 0 2% 0 1%;
-			left: 0%;
-			top:390px;
-		}
-
-		code {
-			white-space: pre;
-			margin:0;
-			padding:0;
-			float: left;
-			width: 25%;
-		}
 
 
-		</style>
 
- 	
-        
 
  <script>
 
@@ -188,75 +97,18 @@ $(document).ready(function() {
 	$('#swipe').bind('swipeleft',log);
 	$('#swipe').bind('swipeleftup',log);*/
 
-	$('#change').bind('pinchopen',manipulate);
-	$('#change').bind('pinchclose',manipulate);
+	$('#area').bind('pinchopen',manipulate);
+	$('#area').bind('pinchclose',manipulate);
 
-	$('#livechange').bind('pinch',manipulate);
+	$('#area').bind('pinch',manipulate);
 
 
 })
  </script>
 
     </head>
-    <body>
-		<ul id="log2" style="position: absolute; right: 0; z-index:20000;" >
- 		</ul>
-		<ul id="logger" >
-			<li>Description</li>
-		</ul>
 
-			<ul>
-				<li id="tap" class="tap">
-					<code>
-$('#tap').bind('tapone',log);
-$('#tap').bind('taptwo',log);
-$('#tap').bind('tapthree',log);
-$('#tap').bind('tapfour',log);
- 					</code>
-				</li>
-				<li id="swipe" class="swipe">
-					<code>
-$('#swipe').bind('swipeone',log);
-$('#swipe').bind('swipetwo',log);
-$('#swipe').bind('swipethree',log);
-$('#swipe').bind('swipefour',log);
- 					</code>
-					<code>
-$('#swipe').bind('swipeup',log);
-$('#swipe').bind('swiperightup',log);
-$('#swipe').bind('swiperight',log);
-$('#swipe').bind('swiperightdown',log);
- 					</code>
-					<code>
-$('#swipe').bind('swipedown',log);
-$('#swipe').bind('swipeleftdown',log);
-$('#swipe').bind('swipeleft',log);
-$('#swipe').bind('swipeleftup',log);
- 					</code>
-				</li>
-				<li id="change" class="gestureend">
-					<code>
-$('#change').bind('pinchopen',manipulate);
-$('#change').bind('pinchclose',manipulate);
-$('#change').bind('rotatecw',manipulate);
-$('#change').bind('rotateccw',manipulate);
-$('#change').bind('swipeone',manipulate);
-
-
- 					</code>
-				</li>
-				<li id="livechange" class="gesturechange">
-					<code>
-$('#livechange').bind('swipemove',manipulate);
-$('#livechange').bind('pinch',manipulate);
-$('#livechange').bind('rotate',manipulate);
-$('#livechange').bind('swipeone',manipulate);
- 					</code>
-				</li>
-
-			</ul>
-
-
-
-	</body>
+<body>
+<div class="area" ><img  id="area" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
+</body>
 </html>
