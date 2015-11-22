@@ -66,7 +66,7 @@ function manipulate(event_, obj) {
 	$(obj.originalEvent.currentTarget).css('zIndex','1000')
 	switch(_a[0]) {
 		case 'pinch':
-			//$(obj.originalEvent.currentTarget).css('-webkit-transform','scale('+ ( obj.direction * obj.delta[0].moved ) +')');
+			$(obj.originalEvent.currentTarget).css('-webkit-transform','scale('+ ( obj.direction * obj.delta[0].moved ) +')');
 		break;
 		case  'rotate':
  			//$(obj.originalEvent.currentTarget).css('-webkit-transform','rotate('+ (  obj.delta[0].moved ) +'deg)');
