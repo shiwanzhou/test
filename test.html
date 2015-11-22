@@ -57,14 +57,15 @@
         var handleTouchyPinch = function (e, $target, data) {
             var scale = data.scale;
             $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
-            e.stopPropagation();
-            e.preventDefault();
+           
         }
+
+       var touchTimeout = setTimeout(handleTouchyPinch, 250);
+
         $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
         $(window).bind('scroll',function(){
-            $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
-            $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
+            if (touchTimeout) clearTimeout(touchTimeout)
         })
 
     })();
