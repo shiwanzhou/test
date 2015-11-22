@@ -62,7 +62,7 @@
         }
         $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
-        $(window).on('scroll',function(){
+        $(window).bind('scroll',function(){
             $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         })
 
