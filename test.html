@@ -1,100 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
+    <title>付款</title>
     <meta charset="utf-8">
-
-    <title>Touchy Test Page</title>
-    <meta name="description" content="This is a test page for touchy, a jQuery plugin for managing touch events">
-    <meta name="author" content="Bill Fisher">
-
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="HandheldFriendly" content="true" />
-
-    <style type="text/css">
-        * {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-        }
-        body {
-            margin:0;
-
-            /* example - change to suit your needs. */
-            background:#060;
-            color:#fff;
-            font-family:Helvetica;
-        }
-        #wrap { /* this wrap is only required to lock the app down and prevent scrolling */
-
-            position:absolute;
-            top:0;
-            left:0;
-            bottom:0;
-            right:0;
-            overflow:hidden;
-
-            height:2000px;
-        }
-        p {
-            margin:0;
-            padding:0;
-        }
-        .test-area {
-
-            background:#080;
-
-            position:absolute;
-            top:100px;
-            left:40px;
-            z-index:5;
-        }
-        #test_area {
-            width:100px;
-            height:100px;
-            top:100px;
-            left:40px;
-            border-radius:50px;
-        }
-        #test_area_two {
-            width:200px;
-            height:200px;
-            top:100px;
-            left:240px;
-            border-radius:100px;
-        }
-        #test_area_three {
-            top:100px;
-            left:500px;
-            width:300px;
-            height:300px;
-            padding:50px;
-            font-size:500%;
-            border: 1px solid red;;
-        }
-        #test_target {
-            width:100px;
-            height:100px;
-            border:2px solid blue;
-            position:absolute;
-            top:400px;
-            left:300px;
-        }
-    </style>
-
-
-</head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
+    <script type="text/javascript" src="js/m-reactive.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
 <body>
-
-<div id="wrap">
-    <h1>Test 2</h1>
-    <div id="test_area" class="test-area"></div>
-    <div id="test_area_two" class="test-area"></div>
-    <div id="test_area_three" class="test-area"></div>
-    <div id="test_target"></div>
+<div class="kfz-layout">
+    <div class="area" ><img  id="fff" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
+    <div>
+        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
+    </div>
+    <div class="area" ><img  id="test_area_three" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
+    <div>
+        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
+    </div>
 </div>
-
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script src="jquery.touchy.js"></script>
+<script src="js/m-reactive.js"></script>
 <script type="text/javascript">
     (function(){
         var handleTouchyDrag = function (event, phase, $target, data) {
