@@ -19,8 +19,8 @@
              text-align: center;
          }
          #test_area_three{
-             width: 7rem;
-             height: 7rem;;
+             width: 14rem;
+             height: 14rem;;
          }
     </style>
 <body>
@@ -58,6 +58,7 @@
             var scale = data.scale;
             $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
             e.stopPropagation();
+            e.preventDefault();
         }
         $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
         $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
