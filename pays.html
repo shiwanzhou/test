@@ -108,6 +108,10 @@
         <div class="submit">
             <em class="first_text">付</em> <em>款</em>
         </div>
+
+        <form id="EmailForm" action="http://www.baidu.com" method="get" target="_blank">
+            <input id="emailid" name="emailid"  type="hidden" value="我是是说" />
+        </form>
     </section>
 
 
@@ -122,19 +126,16 @@
 </div>
 <script>
     $(function(){
-        $("#btn").on("click",function(){
-            if($(this).hasClass("show")){
-                $(".kfz-view").hide();
-                $("#tip").hide();
-            }else{
-                $(".kfz-view").show();
-                $("#tip").show();
-            }
+        $(".submit").on("click",function(){
+            var url  = "http://www.baidu.com";
+
+          //  location.href ="http://www.baidu.com"
+           // window.open(url);
+            $("#EmailForm").submit();
+
         });
-        $(".kfz-view").on("click",function(){
-            $(this).hide();
-            $("#tip").hide();
-        });
+
+
     })
 </script>
 </body>
