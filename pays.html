@@ -48,6 +48,8 @@
             top: -0.275rem;
             left: 11.7rem;
         }
+
+        .payment_box .payment_list .item .checked{background-position: -0.33rem -0.39rem;}
     </style>
 </head>
 <body>
@@ -78,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="clearfix icon_pay right"></div>
+                <div class="clearfix icon_pay right check_ico"></div>
             </div>
             <div class="item item_02">
                 <div class="left">
@@ -90,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="icon_pay right checked"></div>
+                <div class="icon_pay right  check_ico"></div>
             </div>
             <div class="item item_03">
                 <div class="left">
@@ -102,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="icon_pay right"></div>
+                <div class="icon_pay right check_ico"></div>
             </div>
         </div>
         <div class="submit">
@@ -134,6 +136,11 @@
             $("#EmailForm").submit();
 
         });
+
+    $(".check_ico").on("click",function(){
+        $(this).removeClass("checked")
+        $(this).addClass("checked")
+    });
 
 
     })
