@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="bx-ued" />
+    <title><{:C('SITE_TITLE')}></title>
+    <meta name="keywords" content="<{:C('SITE_KEYWORDS')}>"/>
+    <meta name="description" content="<{:C('SITE_DESCRIPTION')}>"/>
+    <include file="Common:common"/>
+    <link href="__ASSET__/css/zizhu/z-base.css?__VERSION__" rel="stylesheet" type="text/css"/>
+    <link href="__ASSET__/css/zizhu/validform.css?__VERSION__" rel="stylesheet" type="text/css"/>
+    <link href="__ASSET__/css/zizhu/grzx.css?__VERSION__" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="__IMAGE__/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="__ASSET__/js/sea/sea.js?__VERSION__"></script>
+    <script type="text/javascript" src="__ASSET__/js/jquery-plugin/jquery1.91.js?__VERSION__"></script>
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="__ASSET__/js/bx-fundation/DD_belatedPNG_0.0.8a.js?__VERSION__"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('img,.common,.logo,a:hover,.current , .pager-next , .pager-prev');
+    </script>
+    <![endif]-->
+</head>
+<body>
+<include file="Common:bodytop"/>
+<div class="body_main">
+    <include file="Common:leftnav"/>
+    <div class="container">
+        <div class="top">
+            <span class="common image"></span> <span class="text">完善信息</span> <span id="msg" status="<{$resdata.status}>" message="<{$resdata.message}>"></span>
+        </div>
+        <div class="content">
+            <form id="registerform"  class="registerform" method="post" action="<{:URL('/Index/usercenter/@zizhu')}>" enctype="multipart/form-data">
+                <div class="basicInfo">
+                    <h1>基础信息填写</h1>
+                    <p>*号为必填项目，请认真填写,一经审核无法自行更改，如有疑问，请联系客服QQ：279604661</p>
+                    <div class="form-group first-group">
+                        <label class="text1">用户名称：</label>
+                        <input  type="text" readonly="readonly" class="userName" id="userName" value="<{$Think.cookie.self_username}>"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="text2">联系人姓名：</label>
+                        <input type="text" value="请输入联系人姓名" defaultval="<{$userinfo.adminuser}>" name="adminuser"   class="inputBorder"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">手机号码：</label>
+                        <input  type="text"  class="phoneNumber inputBorder" name="telephone" id="phoneNumber"   autocomplete="off" value="请输入手机号码" defaultval="<{$userinfo.telephone}>"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">联系地址：</label>
+                        <input  type="text"  class="contactDddress inputBorder" name="address"  id="contactDddress"   autocomplete="off" value="请输入联系地址" defaultval="<{$userinfo.address}>"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="text4">QQ号码：</label>
+                        <input  type="text"  class="qqNumber inputBorder" name="qq" id="qqNumber"   autocomplete="off" value="请输入QQ号码" defaultval="<{$userinfo.qq}>" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text5">邮箱：</label>
+                        <input  type="text"  class="email inputBorder" name="email"  id="email"  autocomplete="off" value="请输入邮箱" defaultval="<{$userinfo.email}>" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">证件类型：</label>
+                        <span class="documentTypeSelect"> </span>
+                        <input  type="text"  class="documentType inputBorder" readonly="readonly" id="documentType" autocomplete="off" value="身份证" defaultval="身份证" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">证件号码：</label>
+                        <input  type="text"  class="documentNumber inputBorder" name="cardnum" id="documentNumber" autocomplete="off" value="请输入证件号码" defaultval="<{$userinfo.cardnum}>" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3 labelNote">证件图片：</label>
+                        <input class="text3 labelImage documentImg" type="file" name="cardthumb"  id="uploadImg"/>
+                        <div class="documentImage" style="width: 148px;height: 148px;overflow: hidden">
+                            <div id="imgDiv">
+                                <img src="./Public/upload/<{$userinfo.cardthumb|default=C('DEFAULT_THUMB')|file_subfix=###,'_148x148'}>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bankInfo">
+                    <h1>添加银行信息</h1>
+                    <p>尊敬的用户，银行收款一经审核无法自行更改，如有疑问，请联系客服QQ：279604661</p>
+                    <div class="form-group first-group2">
+                        <label class="text2">开户人姓名：</label>
+                        <input  type="text"  class="accountName inputBorder" name="bankusername"  id="accountName" autocomplete="off" value="请输入开户人姓名" defaultval="<{$userinfo.bankusername}>"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">银行卡号：</label>
+                        <input  type="text"  class="bankCardNum inputBorder" name="bankaccount" id="bankCardNum" autocomplete="off" value="请输入银行卡号" defaultval="<{$userinfo.bankaccount}>"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="text3">开户银行：</label>
+                        <input  type="text"  class="accountBank inputBorder" name="banktype" id="accountBank" autocomplete="off" value="请输入开户银行" defaultval="<{$userinfo.banktype}>" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text2">开户行地址：</label>
+                        <input  type="text"  class="accountBankDddr inputBorder" name="bankaddress"  id="accountBankDddr" autocomplete="off" value="请输入开户行地址" defaultval="<{$userinfo.bankaddress}>" />
+                    </div>
+                    <div id="submitButton" class="submitButton" submiturl="<{:URL('/Index/usercenter/@zizhu')}>">
+                        <i class="first">提</i><i>交</i><i>审</i><i>核</i>
+                    </div>
+                  <!--  <input id="submitButton" type="submit" class="submitButton"  value="提 交 审 核">-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__ASSET__/js/bx-fundation/zizhu-common.js?__VERSION__"></script>
+<script type="text/javascript" src="__ASSET__/js/jquery-plugin/Validform_v5.3.2.js?__VERSION__"></script>
+<script type="text/javascript" src="__ASSET__/js/bx-fundation/easydialog.min.js?__VERSION__"></script>
+<script type="text/javascript" src="__ASSET__/js/jquery-plugin/previewImg.js?__VERSION__"></script>
+<script type="text/javascript" src="__ASSET__/js/module/zizhu/personalCenter.js?__VERSION__"></script>
+<include file="Common:bottom"/>
+<script type="text/javascript">
+    $(function(){
+        $("#uploadImg").uploadPreview({ width: 148, height: 148, imgDiv: "#imgDiv"});
+        var registerform=$(".registerform").Validform({
+            tiptype:3
+        });
+        registerform.addRule([{
+            ele:".inputBorder:eq(0)",
+            datatype:"*2-25"
+        },
+            {
+                ele:".inputBorder:eq(1)",
+                datatype:"m"
+            },
+            {
+                ele:".inputBorder:eq(2)",
+                datatype:"l2-25"
+            },
+            {
+                ele:".inputBorder:eq(3)",
+                datatype:"qq"
+            },
+            {
+                ele:".inputBorder:eq(4)",
+                datatype:"e"
+            },
+            {
+                ele:".inputBorder:eq(6)",
+                datatype:"card"
+            },
+            {
+                ele:".inputBorder:eq(7)",
+                datatype:"*2-25"
+            }
+
+        ]);
+        $("#submitButton").click(function(){
+            registerform.submitForm(false, $(this).attr("submiturl"));
+        });
+    });
+</script>
+</body>
+</html>
