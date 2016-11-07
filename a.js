@@ -18,11 +18,18 @@ function filterData(html,url){
 	});
 	var courseData=[];
 	var chapters= $("#increaseAmount_stage").find("tr").first().next();
-	var current = $(".dataItem02").find(".dataNums").find(".ui-font-middle").text()
-	var gt = {"title":"国泰估值优势混合(LOF)","titleNum":"160212","year1":"","year2":"","year3":"","today":""};
-	var cx = {"title":"长信量化先锋混合","titleNum":"519983","year1":"","year2":"","year3":"","today":""};
-	var jyu = {"title":"交银优势行业混合","titleNum":"519697","year1":"","year2":"","year3":"","today":""};
-	var jyw = {"title":"金鹰稳健成长混合","titleNum":"210004","year1":"","year2":"","year3":"","today":""};
+	var current = $(".dataItem02").find(".dataNums").find(".ui-font-middle").text();
+	var guzhi = $("#gz_gszzl").text();
+	$(".dataItem02").find("p").find("a").remove();
+	var date = $(".dataItem02").find("p").text().trim().substring(1,11);
+	var gt = {"名称":"国泰估值优势混合(LOF)","代码":"160212","近1年":"","近2年":"","近3年":"","估值":"","实际值":"","当前时间":""};
+	var cx = {"名称":"长信量化先锋混合","代码":"519983","近1年":"","近2年":"","近3年":"","估值":"","实际值":"","当前时间":""};
+	var jyu = {"名称":"交银优势行业混合","代码":"519697","近1年":"","近2年":"","近3年":"","估值":"","实际值":"","当前时间":""};
+	var jyw = {"名称":"金鹰稳健成长混合","代码":"210004","近1年":"","近2年":"","近3年":"","估值":"","实际值":"","当前时间":""};
+	/*var gt = {"title":"国泰估值优势混合(LOF)","titleNum":"160212","year1":"","year2":"","year3":"","估值":"","实际值":""};
+	var cx = {"title":"长信量化先锋混合","titleNum":"519983","year1":"","year2":"","year3":"","估值":"","实际值":""};
+	var jyu = {"title":"交银优势行业混合","titleNum":"519697","year1":"","year2":"","year3":"","估值":"","实际值":""};
+	var jyw = {"title":"金鹰稳健成长混合","titleNum":"210004","year1":"","year2":"","year3":"","估值":"","实际值":""};*/
 	var gg = {};
 	if(url === url2){
 		gg = gt;
@@ -36,16 +43,18 @@ function filterData(html,url){
 	if(url === url5){
 		gg = jyu;
 	}
-	gg.today = current;
+	gg.实际值 = current;
+	gg.估值 = guzhi;
+	gg.当前时间 = date;
 	chapters.find("td").each(function(i){
 		if(i == 6){
-			gg.year1 =$(this).text().trim();
+			gg.近1年 =$(this).text().trim();
 		}
 		if(i == 7){
-			gg.year2 =$(this).text().trim();
+			gg.近2年 =$(this).text().trim();
 		}
 		if(i == 8){
-			gg.year3 =$(this).text().trim();
+			gg.近3年 =$(this).text().trim();
 		}
 	});
 	if(url === url2){
