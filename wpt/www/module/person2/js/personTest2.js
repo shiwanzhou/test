@@ -16,7 +16,7 @@
         vm.$ssOpts2 = {
             title: "gg",
             modal:data,
-            width:"600px",
+            width:"1016px",
             onOpen:function(){
                  $('#s2').scrollBar({
                      scrollbarWidth: 37,

@@ -212,14 +212,26 @@ define(["../avalon.getModel.js",
             vm._renderView = function() {
                 var innerWrapper = null // 保存innerWraper元素节点
                 // 用户只能通过data-dialog-width配置width，不可以通过ms-css-width来配置，配置了也无效
-                element.setAttribute("ms-css-width", "width")
-                lastContent = avalon.parseHTML(_content).firstChild
+                element.setAttribute("ms-css-width", "width");
+                //最内层div
+                var lastChildContent;
+                //最外层div
+                var firstChildContent = avalon.parseHTML(_content).firstChild;
+                var childs = firstChildContent.childNodes;
+                for(var i=0;i<childs.length;i++){
+                    if(childs[i].nodeType === 1){
+                        lastChildContent = childs[i];
+                        childs[i].parentNode.removeChild(childs[i]);
+                    }
+                }
+                lastContent = lastChildContent;
                 _lastContent = element.innerHTML || vmodel.content
                 element.innerHTML = ""
                 lastContent.innerHTML = _lastContent
                 innerWrapper = avalon.parseHTML(_innerWrapper).firstChild
                 innerWrapper.innerHTML = _lastHeader
-                innerWrapper.appendChild(lastContent)
+                firstChildContent.appendChild(lastContent)
+                innerWrapper.appendChild(firstChildContent)
                 innerWrapper.appendChild(avalon.parseHTML(_lastFooter))
                 element.appendChild(innerWrapper)
                 if (!maskLayerExist) {
