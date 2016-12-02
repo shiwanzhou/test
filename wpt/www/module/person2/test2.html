@@ -1,0 +1,62 @@
+<!--弹窗2-->
+
+<link rel="stylesheet" type="text/css" media="all" href="../person2/css/person2.css" />
+<div ms-controller="demo2"  class="ms-controller">
+    <button ms-click="show('ss2')">打开对话框2222222</button>
+    <!--个人中心-->
+    <div id="dialog_username2" class="widget-dialog" ms-widget="dialog,ss2,$ssOpts2">
+        <a href="javascript:void('close');" class="close" hidefocus></a>
+        <!--此框架包含创建username及验证邮箱获取免充 动态读取弹窗内容-->
+        <div class="change_con dialog_user">
+            <div id="dialog_em" class="fgt_pwd">
+                <!--facebook手机注册用户，需输入email账号-->
+                <form id="set_email" name="send_email" action="" method="post" target="frmSubmit">
+                    <div class="log_reg" id="setEmail" style="display: none;">
+                        <h2>Facebook</h2>
+                        <h4>{{modal}}</h4>
+                        <div class="textbox" style=" margin: 20px auto;"><div id="div_email" class="" ></div>
+                            <div class="txt_icons icon_sd_email fll"></div><p></p>
+                            <input name="passport" id="email" class="email_send color_white" maxlength="45" type="text" onchange="q_email();"/>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="error_Msg"><p id="error_mess_email"></p></div>
+                        <div class="send_btn">
+                            <a href="javascript:void (0) " onclick="onsubmit_email();" id='email_btn' target="_self">OK</a>
+                        </div>
+                    </div>
+                    <input type="hidden" name="sub_sd_mail" id="sub_sd_mail" value="0" />
+                </form>
+                <!--需输入email账号 end/-->
+                <div id="s2" class="scroll-pane wide">
+                    <p style="height: 900px;">dcfffffffffffffffffffffffffffffffffffffffff</p>
+                </div>
+                <!--验证邮箱弹窗-->
+                <div class="log_reg" id="dialog_mail" style="display: none;">
+                    <div class="blue" id="h_title">Welcome&nbsp;<span id="nick_name"></span></div>
+                    <div class="discript">
+                        <p id="m_dis">to get started, please validate your email and we will give you <span>500</span> club points to start  playing.</p>
+                    </div>
+                    <div class="re_mail fll" id="pic_mail"></div><div class="clear"></div>
+                    <div class="resend_em" id="resend"> <a href="javascript:void(0);" id="yz_mail">Resend Email</a></div>
+                </div>
+                <!--验证邮箱弹窗 end/-->
+                <!--验证邮箱成功弹窗-->
+                <div class="log_reg" id="get_points" style="display: none;">
+                    <h2 id="titles">congratulations! </h2>
+                    <div class="discript">
+                        <p id="suceess_dis">we have deposited <span>500</span> club points into your account.</p>
+                    </div>
+                    <div class="send_btn" id='play_poker'><a href="javascript:void (0) " target="_self"><img src="../images/icon_play.png"> Play Poker</a></div>
+                </div>
+                <!--验证过期邮件链接，并重新发送邮件-->
+                <div class="log_reg" id="dialog_vali_email" style="display: none;">
+                    <h2 id="title_m">Error</h2>
+                    <h4 id="m_info"></h4>
+                    <div class="validate" id="vili_email">
+                        <div class="posite"><div class="vali_btn" id="vali_btn"></div><span id="time" style="display: none;"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
