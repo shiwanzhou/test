@@ -49,7 +49,7 @@ a:hover{text-decoration:none;}
 .scrollBarDragMiddle{position:absolute;top:7px;left:0;background:url(../images/scrollBar_middle.png) repeat-y;height:8px;}
 .scrollBarDragBottom{position:absolute;bottom:0;left:0;overflow:hidden;background:url(../images/scrollBar_down.png) no-repeat;height:8px;}
 /*scrollBar上下箭头*/
-a.scrollArrowUp{display:block;position:absolute;z-index:1;top:0;right:0;text-indent:-2000px;overflow:hidden;height:48px;background:url(../images/scrollBar_arrowUp.png) no-repeat;}
+a.scrollArrowUp{display:block;position:absolute;z-index:1;top:0;right:0;text-indent:-2000px;overflow:hidden;height:44px;background:url(../images/scrollBar_arrowUp.png) no-repeat;}
 a.scrollArrowDown{display:block;position:absolute;z-index:1;bottom:0;right:0;text-indent:-2000px;overflow:hidden;height:48px;background:url(../images/scrollBar_arrowDown.png) no-repeat}
 
 

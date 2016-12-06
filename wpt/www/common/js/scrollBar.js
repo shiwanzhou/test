@@ -49,13 +49,13 @@
                 this.trackHeight = this.paneHeight;
                 $this.wrap(
                     $('<div></div>').attr( {'class':'scrollBarContainer'}).css({ 'height':this.paneHeight+'px', 'width':this.paneWidth+'px'})
-                    );
+                );
             }
             /*处理滚动条偏离样式*/
-           this.scrollbarOnLeft(this.originalSidePaddingTotal,$this);
+            this.scrollbarOnLeft(this.originalSidePaddingTotal,$this);
 
             /*创建插入滚动条*/
-           this.appendScrollBar($this);
+            this.appendScrollBar($this);
 
         },
         /*处理滚动条偏离样式*/
@@ -163,8 +163,9 @@
                 var $downArrow =  $container.find(".scrollArrowDown");
                 /*计算核心滚动条整个的高度（高度 = 容器高度 - 上下箭头高度）*/
                 if (this.options.arrowSize) {
-                    this.trackHeight = this.paneHeight - this.options.arrowSize - this.options.arrowSize;
-                    $track.css({'height': this.trackHeight+'px', top:this.options.arrowSize+'px'})
+                    console.log(this.trackHeight);
+                    this.trackHeight = this.paneHeight - 80;
+                    $track.css({'height': this.trackHeight+'px', top:'38px'})
                 } else {
                     var topArrowHeight = $upArrow.height();
                     this.options.arrowSize = topArrowHeight;

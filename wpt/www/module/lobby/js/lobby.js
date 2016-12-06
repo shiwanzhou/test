@@ -5,7 +5,7 @@ require(["text!../../module/person/test.html","text!../../module/lobby/game.html
     avalon.configSource(sourceHtml);
     /*配置对应模板js*/
     require(["../../common/js/scrollBar"]);
-    require(["../../module/person/js/personTest1"]);
+   // require(["../../module/person/js/personTest1"]);
     require(["../../module/person2/js/personTest2"]);
 
 });
