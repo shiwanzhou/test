@@ -1,65 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Account</title>
 <link href="../../common/css/base.css" rel="stylesheet" type="text/css">
-<link href="css/personal.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<!--通用大弹窗-->
-<div class="popup">
-  <div class="top_pop">
-    <div class="top_leftbg fll"></div>
-    <div class="top_centbg fll">
-      <div class="title">
-        <div class="title_leftbg">
-          <div class="title_rightbg"><div class="title_name title_account"></div><!--样式保留title_name--></div>
+<link href="../person/css/personal.css" rel="stylesheet" type="text/css">
+<div ms-controller="demo"  class="ms-controller"  class="widget-dialog" ms-widget="dialog,show_person,$ssOpts">
+<!--个人中心弹窗内容部分-->
+<div class="corner_bg scroll_con"><!--scroll_con height:619px-->
+  <div class="corner_con info_width">
+    <div class="column_title">hong.kaing</div>
+    <div class="column_con show_infos">
+      <ul>
+        <li class="clear"><p class="fll">Email</p><div class="infos fll">hong.kaing@email.com</div><a href="#" class="flr">Validate</a> </li>
+        <li><p class="fll">Password</p><div class="infos fll">******</div><a href="javascript:void(0)" ms-click="show('change_pwd')" class="flr">Change Password</a></li>
+      </ul>
+                                        <!--修改密码小弹窗-->
+                                        <div class="popup popup_small" ms-widget="dialog,change_pwd,$ggOpts">
+                                          <div class="top_pop">
+                                            <div class="top_leftbg fll"></div>
+                                            <div class="top_centbg top_centbg_small fll">
+                                              <div class="title title_small">
+                                                <div class="title_leftbg">
+                                                  <div class="title_rightbg"><div class="title_name title_account"></div><!--样式保留title_name--></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="top_rightbg fll">
+                                              <div class="close_btns flr" ms-click="_close" ms-if="showClose"><a href="#"></a></div>
+                                            </div>
+                                          </div><!--/end top_pop弹窗头部-->
+                                          <div class="pop_con_rightbg">
+                                          <div class="pop_con">
+                                            <!--弹窗内容部分-->
+                                            个人中心弹窗
+                                          </div>
+                                          </div><!--/end pop_con_rightbg弹窗内容部分-->
+                                          <div class="bottom_pop">
+                                            <div class="bot_leftbg fll"></div>
+                                            <div class="bot_centbg bot_centbg_small fll"></div>
+                                            <div class="bot_rightbg fll"></div>
+                                          </div>
+                                        </div>
+                                        <!--修改密码小弹窗end-->
+    </div>
+  </div><!--personal info end/-->
+  <div class="corner_con info_width"><!--credit card info/-->
+  <div class="column_title">Credit Card</div>
+  <div class="column_con show_infos">
+    <ul>
+      <li class="clear"><p class="fll">Credit Card Number</p><div class="infos fll">Visa************1234</div><a href="#" class="flr">Edit</a> </li>
+      <li><p class="fll">Expiration Date</p><input name="exp_date" maxlength="30" type="text" class="change_input fll"/><a href="#" class="flr">Edit</a> </li>
+    </ul>
+  </div>
+  </div><!--credit card info end/-->
+  <div class="corner_con info_width no_margin"><!--billing info/-->
+        <div class="column_title">Billing Information</div>
+        <div class="column_con show_infos">
+          <ul>
+            <li class="clear"><p class="fll">Name</p><div class="infos fll">Seven liu</div><a href="#" class="flr">Edit</a> </li>
+            <li><p class="fll">Address</p><div class="infos fll">12/4359</div><a href="#" class="flr">Edit</a> </li>
+            <li><p class="fll">Country</p><div class="infos fll">12/4359</div><a href="#" class="flr">Edit</a> </li>
+            <li><p class="fll">City</p><div class="infos fll">12/4359</div><a href="#" class="flr">Edit</a> </li>
+            <li><p class="fll">State</p><div class="infos fll">C/A</div><a href="#" class="flr">Edit</a> </li>
+            <li><p class="fll">Postal Code</p><div class="infos fll">12/4359</div><a href="#" class="flr">Edit</a> </li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div class="top_rightbg fll">
-      <div class="close_btns flr"><a href="#"></a></div>
-    </div>
-  </div><!--/end top_pop弹窗头部-->
-  <div class="pop_con_rightbg">
-  <div class="pop_con">
-    <!--弹窗内容部分-->
-  </div>
-  </div><!--/end pop_con_rightbg弹窗内容部分-->
-  <div class="bottom_pop">
-    <div class="bot_leftbg fll"></div>
-    <div class="bot_centbg fll"></div>
-    <div class="bot_rightbg fll"></div>
-  </div>
+  </div><!--billing info end/-->
 </div>
-<!--通用大弹窗end-->
-<!--通用小弹窗-->
-<div class="popup popup_small">
-  <div class="top_pop">
-    <div class="top_leftbg fll"></div>
-    <div class="top_centbg top_centbg_small fll">
-      <div class="title title_small">
-        <div class="title_leftbg">
-          <div class="title_rightbg"><div class="title_name title_account"></div><!--样式保留title_name--></div>
-        </div>
-      </div>
-    </div>
-    <div class="top_rightbg fll">
-      <div class="close_btns flr"><a href="#"></a></div>
-    </div>
-  </div><!--/end top_pop弹窗头部-->
-  <div class="pop_con_rightbg">
-  <div class="pop_con">
-    <!--弹窗内容部分-->
-  </div>
-  </div><!--/end pop_con_rightbg弹窗内容部分-->
-  <div class="bottom_pop">
-    <div class="bot_leftbg fll"></div>
-    <div class="bot_centbg bot_centbg_small fll"></div>
-    <div class="bot_rightbg fll"></div>
-  </div>
+<!--个人中心弹窗内容部分 end-->
 </div>
-<!--通用小弹窗end-->
-</body>
-</html>

@@ -1,197 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Personal Center</title>
-    <link href="css/reset.css" rel="stylesheet" type="text/css">
-    <link href="css/personal.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<title>Account</title>
+<link href="../../common/css/base.css" rel="stylesheet" type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
 </head>
-<body  ms-controller="demo">
-<div class="personal"><!--<a href="#" class="close"></a>-->
-<div class="per_t_bg"></div>
-<div class="per_c_bg">
-<div class="widget-tabpanel" id="panel_personal">
-<ul class="tabs">
-    <li class="tab" id="tab1" ms-click="tab_change('isPersonal')"></li>
-</ul>
-<div class="panels" id="scroll-1">
-<!--panel PERSONAL-->
-<div class="panel" ms-visible="isPersonal" >
-   <ul id="infos" class="clear">
-        <li>
-            <div class="info"><span class="sp_width">Name</span><span class="sp_widths" id="user_name" style="width: 310px;">{{name}}</span><a href="javascript:void (0)" id="edit_nm" class="edit" ms-click="show('gg')">Edit</a></div>
-            <div class="open_ul" id="close_name" ms-visible="isCloseName">
-            <div class="txtbox"><p class="ques">Name</p>
-            <input name="" id="name" maxlength="30" type="text" class="txt_iput" ms-duplex="fullName"/>
-            <div class="clears"></div>
-            <div class="worn error_Msg"><p id="error_name"></p></div>
+<body>
+<!--通用大弹窗-->
+<div class="popup">
+  <div class="top_pop">
+    <div class="top_leftbg fll"></div>
+    <div class="top_centbg fll">
+      <div class="title">
+        <div class="title_leftbg">
+          <div class="title_rightbg"><div class="title_name title_account"></div><!--样式保留title_name--></div>
+        </div>
+      </div>
+    </div>
+    <div class="top_rightbg fll">
+      <div class="close_btns flr"><a href="#"></a></div>
+    </div>
+  </div><!--/end top_pop弹窗头部-->
+  <div class="pop_con_rightbg">
+  <div class="pop_con">
+    <!--个人中心弹窗内容部分-->
+    <div class="corner_bg scroll_con" ms-controller="personal"><!--scroll_con height:619px-->
+      <div class="corner_con info_width">
+        <div class="column_title">{{name}}</div>
+        <div class="column_con show_infos">
+          <ul>
+            <li class="clear"><p class="fll">Email</p><div class="infos fll">{{email}}</div><a href="#" class="flr">Validate</a> </li>
+            <li><p class="fll">Password</p><div class="infos fll">******</div><a href="#" class="flr">Change Password</a></li>
+          </ul>
+        </div>
+      </div><!--personal info end/-->
+      <div class="corner_con info_width"><!--credit card info/-->
+      <div class="column_title">Credit Card</div>
+      <div class="column_con show_infos">
+        <ul>
+          <li class="clear"><p class="fll">Credit Card Number</p><div class="infos fll">Visa************1234</div><a href="#" class="flr">Edit</a> </li>
+          <li><p class="fll">Expiration Date</p><input name="exp_date" maxlength="30" type="text" class="change_input fll"/><a href="#" class="flr">Edit</a> </li>
+        </ul>
+      </div>
+      </div><!--credit card info end/-->
+      <div class="corner_con info_width no_margin"><!--billing info/-->
+            <div class="column_title">Billing Information</div>
+            <div class="column_con show_infos">
+              <ul>
+                <li class="clear"><p class="fll">Name</p><div class="infos fll">{{name}}</div><a href="#" class="flr">Edit</a> </li>
+                <li><p class="fll">Address</p><div class="infos fll">{{address}}</div><a href="#" class="flr">Edit</a> </li>
+                <li><p class="fll">Country</p><div class="infos fll">{{country}}</div><a href="#" class="flr">Edit</a> </li>
+                <li><p class="fll">City</p><div class="infos fll">{{city}}</div><a href="#" class="flr">Edit</a> </li>
+                <li><p class="fll">State</p><div class="infos fll">{{state}}</div><a href="#" class="flr">Edit</a> </li>
+                <li><p class="fll">Postal Code</p><div class="infos fll">{{postalcode}}</div><a href="#" class="flr">Edit</a> </li>
+              </ul>
             </div>
-            <div class="btns">
-            <div class="btn_apply fll" id="nm_state"><a href="javascript:void (0)" ms-click="editPostName()"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard" ms-click="editName('discard')"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-           <div class="info"><span class="sp_width">Email Address</span><span class="sp_widths" id="mail_val"></span>
-             <input name="" type="button" id="e_vali" class="validate" />
-           </div>
-        </li>
-        <li>
-            <div class="info">
-            <span class="sp_width">Password</span><span class="sp_pwd" id="pwd_val">******</span><span class="get_pwd" id="pwd_time"></span><a href="javascript:void (0)" id="edit_pwd" class="edit" ms-click="edit_init('pwd')">Edit</a></div>
-            <div class="open_ul" id="close_pwd" ms-visible="isClosePwd"><!--Password-->
-            <form id="change_pwd" name="change_pwd" action="" method="post">
-            <div class="txtbox"><p class="widthp">Old Password</p>
-                <input oncut="return false;" oncopy="return false;" onpaste="return false;" name="" maxlength="16" type="password" class="txt_iput" id="oldpwd"/>
-                <div class="clears"></div>
-            </div>
-            <div class="txtbox"><p class="widthp">New Password</p>
-                <input oncut="return false;" oncopy="return false;" onpaste="return false;" name="password" id="password" onchange="q_checkUPassword();"  maxlength="16" type="password" class="txt_iput"/><div class="clear"></div>
-                <div class="clears"></div>
-            </div>
-            <div class="txtbox"><p class="widthp">Confirm Password</p>
-                <input oncut="return false;" oncopy="return false;" onpaste="return false;" name="cpassword" id="cpassword" onchange="q_checkUPassword();"  maxlength="16" type="password" class="txt_iput"/><div class="clears"></div>
-                <div class="clears"></div>
-            </div>
-            <div class="worn error_Msg"><p id="error_mess_cg"></p></div>
-            <div class="btns">
-                <div class="btn_apply fll"><a href="javascript:void (0) " onclick="change_onsubmit_email();" target="_self"></a> </div>
-                <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            <input type="hidden" name="sub_cg_pwd" id="sub_cg_pwd" value="0" />
-            </form>
-            </div>
-        </li>
-        <li>
-             <div class="info"><span class="sp_width">Address</span><span class="sp_widths" id="addr_val" style="width: 330px;"></span><a href="javascript:void (0)" class="edit" id="edit_addr" ms-click="editName()">Edit</a></div>
-            <div class="open_ul" id="close_addr" ms-visible="isCloseAddr">
-            <div class="txtbox"><p class="ques">Address</p>
-            <input name="" maxlength="50" type="text" class="txt_iput" id="addr"/>
-            <div class="clears"></div>
-            </div>
-            <div class="worn error_Msg"><p id="error_addr"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="cg_addr"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="info"><span class="sp_width">City</span><span class="sp_widths" id="city_val"></span><a href="javascript:void (0)" id="edit_city" class="edit">Edit</a></div>
-            <div class="open_ul" id="close_city" ms-visible="isCloseCity">
-            <div class="txtbox"><p class="ques">City</p>
-            <input name="" maxlength="20" type="text" id="city" class="txt_iput"/><div class="clears"></div>
-            </div>
-            <div class="worn error_Msg"><p id="error_city"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="cg_city"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="info"><span class="sp_width">State</span><span class="sp_widths" id="state_val"></span><a href="javascript:void (0)" id="edit_state" class="edit">Edit</a></div>
-            <div class="open_ul" id="close_state" ms-visible="isCloseState">
-            <div class="txtbox"><p class="ques">State</p><input name="" maxlength="20" type="text" id="state" class="txt_iput"/><div class="clears"></div> </div>
-            <div class="worn error_Msg"><p id="error_state"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="cg_state"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="info"><span class="sp_width">Postal Code</span><span class="sp_widths" id="pc_val"></span><a href="javascript:void (0)" id="edit_pc" class="edit">Edit</a></div>
-            <div class="open_ul" id="close_pc" ms-visible="isClosePc">
-            <div class="txtbox"><p class="ques">Postal Code</p>
-            <input name="" maxlength="6" type="text" class="txt_iput" id="pos_input"/><div class="clears"></div>
-            </div>
-            <div class="worn error_Msg"><p id="error_pos"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="pos_code"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="info"><span class="sp_width">Country</span><span class="sp_widths" id="coun_val"></span><a href="javascript:void (0)" id="edit_coun" class="edit">Edit</a></div>
-            <div class="open_ul" id="close_coun" ms-visible="isCloseCoun">
-            <div class="txtbox"><p class="ques">Country</p>
-            <select name="" class="sel_iput_mid fll" id="country">
-            <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="Canada">Canada</option>
-            <option value="Australia">Australia</option>
-            <option value="France">France</option>
-            <option value="0">Other</option>
-            </select>
-            <input name="" maxlength="20" type="text" class="txt_iput_mid fll" id="other_coun"/>
-            <div class="clear"></div> </div>
-            <div class="worn error_Msg"><p id="error_count"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="cg_country"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-        <li>
-            <div class="info"><span class="sp_width">Phone</span><span class="sp_widths" id="phone_val"></span><a href="javascript:void (0)" id="edit_ph" class="edit">Edit</a></div>
-            <div class="open_ul" id="close_ph" ms-visible="isClosePh">
-            <div class="txtbox"><p class="ques" style="width:80px;">Phone</p>
-            <select name="" class="sel_iput_mid fll" id="phone">
-                <option value="1">United States(1)</option>
-                <option value="44">United Kingdom(44)</option>
-                <option value="1">Canada(1)</option>
-                <option value="61">Australia(61)</option>
-                <option value="33">France(33)</option>
-                <option value="0">Other</option>
-            </select>
-            <input name="" maxlength="3" type="text" class="txt_iput_phone fll" id="other_phone"/>
-            <input name="" maxlength="11" type="text" class="txt_iput_mid fll" id="phone_num"/>
-            <div class="clears"></div> </div>
-            <div class="worn error_Msg"><p id="error_ph"></p></div>
-            <div class="btns">
-            <div class="btn_apply fll"><a href="javascript:void (0)" id="cg_phone"></a> </div>
-            <div class="btn_discard flr"><a href="javascript:void (0)" class="discard"></a> </div><div class="clears"></div>
-            </div>
-            </div>
-        </li>
-</ul>
-    <div id="dialog" class="widget-dialog" ms-widget="dialog,gg,$ggOpts"><!--验证邮箱弹出窗口-->
-         <div class="topbg" id="show_title"></div>
-         <!--<a href="javascript:void('close');" class="close" hidefocus></a>-->
-         <div class="pop_bg">
-           <div class="vali_con"><p id="m_info">dfgfdgfgert46657687</p></div>
-           <div class="btns_pop">
-                <div class="btn_vali" style="margin: 0 auto;" id="ben_vali"><a href="javascript:void (0)"></a> </div>
-           </div>
-         </div><!--pop_bg end/-->
-         <div class="botbg"></div>
-    </div><!--验证邮箱弹出窗口 end/-->
+      </div><!--billing info end/-->
+    </div>
+    <!--个人中心弹窗内容部分 end-->
+  </div>
+  </div><!--/end pop_con_rightbg弹窗内容部分-->
+  <div class="bottom_pop">
+    <div class="bot_leftbg fll"></div>
+    <div class="bot_centbg fll"></div>
+    <div class="bot_rightbg fll"></div>
+  </div>
 </div>
-<!--panel PERSONAL end/-->
-</div>
-</div>
-</div>
-<div class="per_b_bg"></div>
-</div>
-
-<script type="text/javascript"  src="../../common/js/require.js"  data-main="js/personal.js?v=20161028"></script>
-<script>
-            require(["dialog/avalon.dialog"], function(avalon) {
-                            avalon.define("demo", function(vm) {
-                                vm.show = function( id ){
-                                    avalon.vmodels[id].toggle = true;
-                                };
-                                vm.$ggOpts = {
-                                    title: "gg dialog,在ss dialog之上",
-                                    showClose: false
-                                };
-                            });
-                            avalon.scan();
-                        })
-        </script>
-
+<!--通用大弹窗end-->
+<script type="text/javascript"  src="../../common/js/require.js"  data-main="js/personal.js"></script>
 </body>
 </html>

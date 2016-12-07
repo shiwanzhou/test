@@ -11,6 +11,8 @@
             wheelSpeed : 18,        /*鼠标滚轮速度*/
             showArrows : true,      /*是否为用户显示的箭头滚动*/
             arrowSize : 37,           /*上下箭头中间滚动条距顶部高度，如果showArrows= TRUE*/
+            arrowTop:37,              /*上箭头距顶部高度，如果showArrows= TRUE*/
+            arrowHeight:78,              /*上箭头总高度，如果showArrows= TRUE*/
             animateTo : false,       /*当动画时调用scrollTo和scrollBy*/
             dragMinHeight : 1,       /*允许拖动栏的最小高度*/
             dragMaxHeight : 99999,    /*允许拖动栏的最大高度*/
@@ -33,13 +35,12 @@
             this.paneHeight = $this.innerHeight();
             this.trackHeight = 0;
             /*判断有没有scrollBarContainer 类*/
-            if ($(this).parent().is('.scrollBarContainer')) {
-                this.currentScrollPosition =  this.options.maintainPosition ? $this.position().top : 0;
+            if ($this.parent().is('.scrollBarContainer')) {
+                var currentScrollPosition = this.options.maintainPosition ? $this.position().top : 0;
                 var $c = $this.parent();
                 this.paneWidth = $c.innerWidth();
                 this.paneHeight = $c.outerHeight()+550;
                 this.trackHeight = this.paneHeight;
-                $('>.scrollBarTrack, >.scrollArrowUp, >.scrollArrowDown', $c).remove();
                 $this.css({'top':0});
             } else {
                 this.originalPadding = $this.css('paddingTop') + ' ' + $this.css('paddingRight') + ' ' + $this.css('paddingBottom') + ' ' + $this.css('paddingLeft');
@@ -49,13 +50,13 @@
                 this.trackHeight = this.paneHeight;
                 $this.wrap(
                     $('<div></div>').attr( {'class':'scrollBarContainer'}).css({ 'height':this.paneHeight+'px', 'width':this.paneWidth+'px'})
-                    );
+                );
             }
             /*处理滚动条偏离样式*/
-           this.scrollbarOnLeft(this.originalSidePaddingTotal,$this);
+            this.scrollbarOnLeft(this.originalSidePaddingTotal,$this);
 
             /*创建插入滚动条*/
-           this.appendScrollBar($this);
+            this.appendScrollBar($this);
 
         },
         /*处理滚动条偏离样式*/
@@ -76,7 +77,7 @@
         appendScrollBar:function($this){
             this.contentHeight = $this.outerHeight();
             this.percentInView = this.paneHeight / this.contentHeight;
-            if (this.percentInView < .99) {
+            if (this.percentInView < 0.99) {
                 var $container = $this.parent();
                 $container.append(
                     $('<div></div>').attr({'class':'scrollBarTrack'}).css({'width':this.options.scrollbarWidth+'px'}).append(
@@ -98,7 +99,6 @@
                         'padding':this.originalPadding
                     }
                 );
-                $this.parent().unbind('mousewheel');
             }
         },
         /*用户自定义滚动条箭头*/
@@ -161,10 +161,10 @@
                     );
                 var $upArrow =  $container.find(".scrollArrowUp");
                 var $downArrow =  $container.find(".scrollArrowDown");
-                /*计算核心滚动条整个的高度（高度 = 容器高度 - 上下箭头高度）*/
+                /*计算核心滚动条整个的高度（高度 = 容器高度 - 上下箭头总高度）*/
                 if (this.options.arrowSize) {
-                    this.trackHeight = this.paneHeight - this.options.arrowSize - this.options.arrowSize;
-                    $track.css({'height': this.trackHeight+'px', top:this.options.arrowSize+'px'})
+                    this.trackHeight = this.paneHeight - this.options.arrowHeight;
+                    $track.css({'height': this.trackHeight+'px', top:this.options.arrowTop+'px'})
                 } else {
                     var topArrowHeight = $upArrow.height();
                     this.options.arrowSize = topArrowHeight;
@@ -299,6 +299,7 @@
             var $this = $(this.$element);
             var $track = $this.parent().find(".scrollBarTrack");
             var $pane = $this.css({'position':'absolute', 'overflow':'visible'});
+            $this.parent().unbind('mousewheel');
             $this.parent().bind(
                 'mousewheel',
                 function (event, delta) {

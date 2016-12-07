@@ -18,11 +18,18 @@ require(['jquery','personModel','avalon','common'],function(jq,perModel,ava,comm
   var personModel=avalon.define({
     $id:'personal',
     name:'',
+    email:'',
+    address:'',
+    country:'',
+    city:'',
+    state:'',
+    postalcode:'',
     //-------------------获取登录信息----------------------
     getLoginInfo:function(){
       per_model.getLoginInfo("",function(res){
         var guideData=res.Value;
         if(guideData&& guideData.IsLogined==true){
+          personModel.email=guideData.Email;//获取用户email地址
           personModel.gUserInfo();//如果登录成功则调用获取用户信息
         }
       })
@@ -32,7 +39,11 @@ require(['jquery','personModel','avalon','common'],function(jq,perModel,ava,comm
       per_model.getUserInfo("",function(res){
         var guideData=res.Value;
         personModel.name=guideData.FullName;
-        var address=guideData.AddrDetail;
+        personModel.address=guideData.AddrDetail;
+        personModel.country=guideData.AddrCountry;
+        personModel.city=guideData.AddrCity;
+        personModel.state=guideData.AddrState;
+        personModel.postalcode=guideData.AddrPostCode;
       })
     },
     //-------------------修改name----------------------

@@ -1,10 +1,6 @@
 <!--弹窗2-->
-
-<link rel="stylesheet" type="text/css" media="all" href="../person2/css/person2.css" />
-<div ms-controller="demo2"  class="ms-controller">
-    <button ms-click="show('ss2')">打开对话框2222222</button>
-    <!--个人中心-->
-    <div id="dialog_username2" class="widget-dialog" ms-widget="dialog,ss2,$ssOpts2">
+    <link rel="stylesheet" type="text/css" media="all" href="../person2/css/person2.css" />
+    <div ms-controller="demo2"  class="ms-controller" id="dialog_username2" class="widget-dialog" ms-widget="dialog,ss2,$ssOpts">
         <a href="javascript:void('close');" class="close" hidefocus></a>
         <!--此框架包含创建username及验证邮箱获取免充 动态读取弹窗内容-->
         <div class="change_con dialog_user">
@@ -46,7 +42,6 @@
                     <div class="discript">
                         <p id="suceess_dis">we have deposited <span>500</span> club points into your account.</p>
                     </div>
-                    <div class="send_btn" id='play_poker'><a href="javascript:void (0) " target="_self"><img src="../images/icon_play.png"> Play Poker</a></div>
                 </div>
                 <!--验证过期邮件链接，并重新发送邮件-->
                 <div class="log_reg" id="dialog_vali_email" style="display: none;">
@@ -59,4 +54,3 @@
             </div>
         </div>
     </div>
-</div>

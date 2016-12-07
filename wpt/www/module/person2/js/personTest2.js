@@ -13,10 +13,10 @@
             vm.data = data;
         };
         /*弹出框*/
-        vm.$ssOpts2 = {
+        vm.$ssOpts = {
             title: "gg",
             modal:data,
-            width:"600px",
+            width:"1016px",
             onOpen:function(){
                  $('#s2').scrollBar({
                      scrollbarWidth: 37,
