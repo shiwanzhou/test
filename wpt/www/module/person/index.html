@@ -48,7 +48,13 @@
             <div class="column_title">Billing Information</div>
             <div class="column_con show_infos">
               <ul>
-                <li class="clear"><p class="fll">Name</p><div class="infos fll">{{name}}</div><a href="#" class="flr">Edit</a> </li>
+                <li class="clear">
+                  <p class="fll">Name</p>
+                  <div class="infos fll" ms-visible="show_info">{{name}}</div>
+                  <input id="txt_name" ms-focus="focus" ms-blur="blur" placeholder="" name="exp_date" maxlength="30" type="text" class="change_input fll" ms-visible="show_txt"/>
+                  <a href="javascript:void(0)" ms-visible="show_edit" ms-click="show_change('txt_name')" class="flr">Edit</a>
+                  <div>{{show_erro}}</div>
+                </li>
                 <li><p class="fll">Address</p><div class="infos fll">{{address}}</div><a href="#" class="flr">Edit</a> </li>
                 <li><p class="fll">Country</p><div class="infos fll">{{country}}</div><a href="#" class="flr">Edit</a> </li>
                 <li><p class="fll">City</p><div class="infos fll">{{city}}</div><a href="#" class="flr">Edit</a> </li>

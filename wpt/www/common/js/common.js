@@ -49,7 +49,9 @@ PLAY.ajax.request = function(method, options){
         contentType: contentType,
         dataType: dataType,
         success: function(res, textStatus, jqXHR){
-            res = JSON.parse(res);
+            if(typeof res === "string"){
+                res = JSON.parse(res);
+            }
             if(res && res.State === 1){
                 success && success.call(this, data, res);
             }else{
@@ -84,3 +86,18 @@ PLAY.url.getQuery = function(){
     return params;
 };
 
+
+PLAY.parseDate = function(dateString) {
+    var isoExp = /^\s*(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)Z\s*$/,
+        date = new Date(NaN), month,
+        parts = isoExp.exec(dateString);
+    if(parts) {
+        month = +parts[2];
+        date.setFullYear(parts[1], month - 1, parts[3]);//设置年份月份及日
+        date.setHours(parts[4],parts[5],parts[6]);//设置时分秒
+        if(month != date.getMonth() + 1) {
+            date.setTime(NaN);
+        }
+    }
+    return date;
+};

@@ -48,7 +48,7 @@ define(function(require,exports){
     },
     /*setName*/
     setName:function(data,callback,failcallback,errorcallback){
-      PLAY.ajax.Get({
+      PLAY.ajax.Post({
         url:baseUrl+"UserInfo/ModifyUserInfo",
         data:data,
         success:function(data,res){

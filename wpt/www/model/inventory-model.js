@@ -3,7 +3,7 @@
 define(function(require,exports){
     var inventoryModel = {
         /*getItemsList 获取背包道具列表*/
-        getItemsList:function(data,callback,failcallback,errorcallback){
+        getItemList:function(data,callback,failcallback,errorcallback){
             PLAY.ajax.Post({
                 url:"https://www.playwpt.com/WebAPI/UserInfo/GetItemsList",
                 success:function(data,res){
@@ -21,11 +21,13 @@ define(function(require,exports){
                 }
             });
         },
-        /*SelectUserInfo获取用户登录信息*/
-        getUserInfo:function(data,callback,failcallback,errorcallback){
-            PLAY.ajax.Post({
-                url:PLAY.baseUrl+"UserInfo/SelectUserInfo",
+        /*getAvatarList 获取头像列表*/
+        getAvatarList:function(data,callback,failcallback,errorcallback){
+            PLAY.ajax.Get({
+                url:"https://avatar.playwpt.com/WebAPI/UserAvatar/GetPersonalAvatarList",
                 data:data,
+                dataType:"jsonp",
+                jsonp: "callback",
                 success:function(data,res){
                     if(res){
                         callback&&callback(res);
@@ -42,10 +44,10 @@ define(function(require,exports){
 
             });
         },
-        /*setName*/
-        setName:function(data,callback,failcallback,errorcallback){
-            PLAY.ajax.Get({
-                url:PLAY.baseUrl+"UserInfo/ModifyUserInfo",
+        /* getTicketList 获取门票列表*/
+        getTicketList:function(data,callback,failcallback,errorcallback){
+            PLAY.ajax.Post({
+                url:PLAY.baseUrl+"WebAPI/UserInfo/GetTicketList",
                 data:data,
                 success:function(data,res){
                     if(res){
@@ -62,10 +64,10 @@ define(function(require,exports){
                 }
             });
         },
-        /*emailAddress*/
-        emailAddr:function(data,callback,failcallback,errorcallback){
+        /* getCharmList 获取礼物列表*/
+        getCharmList:function(data,callback,failcallback,errorcallback){
             PLAY.ajax.Post({
-                url:PLAY.baseUrl+"Passport/ToValidateEmail",
+                url:PLAY.baseUrl+"WebAPI/UserInfo/GetCharmList",
                 data:data,
                 success:function(data,res){
                     if(res){
@@ -82,10 +84,50 @@ define(function(require,exports){
                 }
             })
         },
-        /*password*/
-        passWord:function(data,callback,failcallback,errorcallback){
+        /* getEmojisList 获取表情列表*/
+        getEmojisList:function(data,callback,failcallback,errorcallback){
             PLAY.ajax.Post({
-                url:PLAY.baseUrl+"Passport/GetPwdLastModifiedDate",
+                url:PLAY.baseUrl+"WebAPI/UserInfo/getEmojisList",
+                data:data,
+                success:function(data,res){
+                    if(res){
+                        callback && callback(res);
+                    }
+                },
+                fail:function(data,res){
+                    if(res){
+                        failcallback && failcallback(res);
+                    }
+                },
+                error:function(data,res){
+                    errorcallback && errorcallback(res);
+                }
+            })
+        },
+        /*设置幸运物*/
+        selectCharm:function(data,callback,failcallback,errorcallback){
+            PLAY.ajax.Post({
+                url:PLAY.baseUrl+"WebAPI/UserInfo/SelectCharm",
+                data:data,
+                success:function(data,res){
+                    if(res){
+                        callback && callback(res);
+                    }
+                },
+                fail:function(data,res){
+                    if(res){
+                        failcallback && failcallback(res);
+                    }
+                },
+                error:function(data,res){
+                    errorcallback && errorcallback(res);
+                }
+            })
+        },
+        /*设置当前头像*/
+        setCurrentAvatar:function(data,callback,failcallback,errorcallback){
+            PLAY.ajax.Post({
+                url:PLAY.baseUrl+"WebAPI/UserAvatar/SetCurrentAvatar",
                 data:data,
                 success:function(data,res){
                     if(res){

@@ -4,20 +4,8 @@
          <!--导航-->
         <div class="nav">
               <ul>
-                  <li ms-click="tabClick('avatars')" ms-class-1="{{avatarsNow}}">
-                      <span class="inventory_01 avatars"></span>
-                  </li>
-                  <li ms-click="tabClick('charms')" ms-class-1="{{charmsNow}}">
-                      <span class="inventory_01 charms"></span>
-                  </li>
-                  <li ms-click="tabClick('emojis')" ms-class-1="{{emojisNow}}">
-                      <span class="inventory_01 emojis"></span>
-                  </li>
-                  <li ms-click="tabClick('items')" ms-class-1="{{itemsNow}}">
-                      <span class="inventory_01 items"></span>
-                  </li>
-                  <li ms-click="tabClick('tickets')" ms-class-1="{{ticketsNow}}">
-                      <span class="inventory_01 tickets"></span>
+                  <li ms-repeat="baseData"  ms-class="now:navIndex===$index"  ms-click="tabClick($index,el)">
+                      <span class="inventory_01" ms-class="{{el}}"></span>
                   </li>
               </ul>
           </div>
@@ -29,54 +17,9 @@
                  <div class="column_con">
                      <div class="scroll-pane">
                          <ul>
-                             <li>
-                                 <img src="../inventory/images/items_02.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_02.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
-                                 <span class="inventory_01 button"></span>
-                             </li>
-                             <li>
-                                 <img src="../inventory/images/items_01.png">
-                                 <span class="text"><em class="red">3</em><em>Boosters</em></span>
+                             <li ms-repeat="itemsData" >
+                                 <img ms-src="el.url">
+                                 <span class="text"><em class="red">{{el.number}}</em><em>{{el.name}}</em></span>
                                  <span class="inventory_01 button"></span>
                              </li>
                          </ul>
@@ -98,54 +41,13 @@
                     </div>
                     <div class="scroll-pane">
                         <ul>
-                            <li>
-                            <span class="name">
-                                <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                                <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                                <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                                 <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                                 <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                                <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
-                            </li>
-                            <li>
-                             <span class="name">
-                               <em class="inventory_01 btn"></em><em>Normal</em>
-                            </span>
-                                <span class="amount">1</span>
-                                <span class="exp_date">Jan.12.2018</span>
+                            <li ms-repeat="ticketsData" >
+                                <span class="inventory_01 button"></span>
+                                  <span class="name">
+                                     <em class="inventory_01 btn"></em><em>{{el.name}}</em>
+                                 </span>
+                                <span class="amount">{{el.number}}</span>
+                                <span class="exp_date">{{el.validTime}}</span>
                             </li>
                         </ul>
                     </div>
@@ -155,110 +57,6 @@
                 </div>
             </div>
         </div>
-       <!--礼物-->
-        <div id="charms"  class="corner_bg charms_avatars"  ms-visible="charms">
-              <div class="left">
-                  <div class="corner_con">
-                      <div class="content column_con">
-                          <div class="top">
-                              <div class="light">
-                                  <div class="items">
-                                      <img src="../inventory/images/57x52.png">
-                                  </div>
-                                  <div class="avatars">
-                                      <img src="../inventory/images/190x311.png">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="bottom"></div>
-                      </div>
-                      <div class="get_button">
-                          <span class="inventory_02 btn"></span>
-                      </div>
-                  </div>
-              </div>
-              <div class="right">
-                  <div class="corner_con">
-                      <div class="title">PLEASE SELECT A CHARM</div>
-                      <div class="column_con">
-                          <div class="scroll-pane">
-                              <ul>
-                                  <li class="inventory_01" ms-class="now:dataIndex===1"  ms-click="clickCharm(1)">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01" ms-class="now:dataIndex===2"  ms-click="clickCharm(2)">
-                                          <span class="img">
-                                           <img src="../inventory/images/83x75.png">
-                                          </span>
-                                  </li>
-                                  <li class="inventory_01" ms-class="now:dataIndex===3"  ms-click="clickCharm(3)">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/83x75.png">
-                                               </span>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
        <!--表情-->
         <div id="emojis"  class="corner_bg charms_avatars" ms-visible="emojis">
                 <div class="left">
@@ -267,13 +65,13 @@
                             <div class="top">
                                 <div class="light">
                                     <div class="items">
-                                        <img src="../inventory/images/57x52.png">
+                                        <img ms-src="{{smallCharmUrl}}">
                                     </div>
                                     <div class="avatars">
-                                        <img src="../inventory/images/190x311.png">
+                                        <img ms-src="{{bigAvatarUrl}}">
                                     </div>
                                     <div class="select_avatars">
-                                        <img src="../inventory/images/137x139.png">
+                                        <img ms-src="{{bigEmojisUrl}}">
                                     </div>
                                 </div>
                             </div>
@@ -287,183 +85,69 @@
                 <div class="right">
                         <div class="corner_con">
                             <div class="title">
-                                 <a href="javascript:void(0)" class="inventory_01 emojis_01 now"></a>
-                                 <a href="javascript:void(0)" class="inventory_01 emojis_02"></a>
+                                 <a href="javascript:void(0)" class="inventory_01 emojis_01 now" ms-class="now:currentEmojisClass==='emojis_01'" ms-click="tabEmojis('emojis_01')"></a>
+                                 <a href="javascript:void(0)" class="inventory_01 emojis_02" ms-class="now:currentEmojisClass==='emojis_02'" ms-click="tabEmojis('emojis_02')"></a>
                             </div>
                             <div class="column_con">
                                    <div class="scroll-pane">
-                                    <ul>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
+                                    <ul ms-visible="showEmojis01">
+                                        <li ms-repeat="emojisData01" class="inventory_01"  >
+                                           <span class="img" ms-click="clickEmojis01($index)">
+                                               <img ms-src="el.SmallEmojisUrl">
+                                           </span>
                                         </li>
-                                        <li class="inventory_01 now">
-                                          <span class="img">
-                                           <img src="../inventory/images/74x76.png">
-                                          </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
-                                        <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/74x76.png">
-                                               </span>
-                                        </li>
+                                    </ul>
+                                    <ul ms-visible="showEmojis02">
+                                           <li ms-repeat="emojisData02" class="inventory_01"  >
+                                           <span class="img" ms-click="clickEmojis02($index)">
+                                               <img ms-src="el.SmallEmojisUrl">
+                                           </span>
+                                           </li>
                                     </ul>
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
+         <!--礼物-->
+         <div id="charms"  class="corner_bg charms_avatars"  ms-visible="charms">
+             <div class="left">
+                 <div class="corner_con">
+                     <div class="content column_con">
+                         <div class="top">
+                             <div class="light">
+                                 <div class="items">
+                                     <img ms-src="{{smallCharmUrl}}">
+                                 </div>
+                                 <div class="avatars">
+                                     <img ms-src="{{bigAvatarUrl}}">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="bottom"></div>
+                     </div>
+                     <div class="get_button">
+                         <span class="inventory_02 btn"></span>
+                     </div>
+                 </div>
+             </div>
+             <div class="right">
+                 <div class="corner_con">
+                     <div class="title">PLEASE SELECT A CHARM</div>
+                     <div class="column_con">
+                         <div class="scroll-pane">
+                             <ul>
+                                 <li ms-repeat="charmsData" class="inventory_01" ms-class="now:charmDataIndex===$index"  ms-click="clickCharm($index)">
+                                           <span class="img">
+                                               <img ms-src="el.largeUrl">
+                                           </span>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
        <!--头像-->
         <div id="avatars"  class="corner_bg charms_avatars" ms-visible="avatars">
               <div class="left">
@@ -472,10 +156,10 @@
                           <div class="top">
                               <div class="light">
                                   <div class="items">
-                                      <img src="../inventory/images/57x52.png">
+                                      <img ms-src="{{smallCharmUrl}}">
                                   </div>
                                   <div class="avatars">
-                                      <img src="../inventory/images/190x311.png">
+                                      <img ms-src="{{bigAvatarUrl}}">
                                   </div>
                               </div>
                           </div>
@@ -492,75 +176,10 @@
                       <div class="column_con">
                           <div class="scroll-pane">
                               <ul>
-                                  <li class="inventory_01" ms-class="now:dataIndex===1"  ms-click="clickAvatars(1)">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01" ms-class="now:dataIndex===2"  ms-click="clickAvatars(2)">
-                                          <span class="img">
-                                           <img src="../inventory/images/test72x116.png">
-                                          </span>
-                                  </li>
-                                  <li class="inventory_01" ms-class="now:dataIndex===3" ms-click="clickAvatars(3)">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
-                                  </li>
-                                  <li class="inventory_01">
-                                               <span class="img">
-                                                   <img src="../inventory/images/72x116.png">
-                                               </span>
+                                  <li ms-repeat="avatarsData" class="inventory_01" ms-class="now:avatarDataIndex===$index"  ms-click="clickAvatars($index)">
+                                           <span class="img">
+                                               <img ms-src="el.SmallAvatarUrl">
+                                           </span>
                                   </li>
                               </ul>
                           </div>

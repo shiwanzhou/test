@@ -7,7 +7,7 @@
         this.$element = ele;
         this.defaultVal = {
             scrollbarWidth : 37,     /*滚动条总宽度*/
-            scrollbarMargin : 5,
+            scrollbarMargin : 0,
             wheelSpeed : 18,        /*鼠标滚轮速度*/
             showArrows : true,      /*是否为用户显示的箭头滚动*/
             arrowSize : 37,           /*上下箭头中间滚动条距顶部高度，如果showArrows= TRUE*/
@@ -35,12 +35,15 @@
             this.paneHeight = $this.innerHeight();
             this.trackHeight = 0;
             /*判断有没有scrollBarContainer 类*/
-            if ($this.parent().is('.scrollBarContainer')) {
-                var currentScrollPosition = this.options.maintainPosition ? $this.position().top : 0;
-                var $c = $this.parent();
-                this.paneWidth = $c.innerWidth();
-                this.paneHeight = $c.outerHeight()+550;
+            if ($this.parent().hasClass('scrollBarContainer')) {
+                this.currentScrollPosition = this.options.maintainPosition ? $this.position().top : 0;
+                var $scrollBarContainer  = $this.parent();
+                this.paneWidth = $scrollBarContainer.innerWidth();
+                this.paneHeight = $scrollBarContainer.outerHeight();
                 this.trackHeight = this.paneHeight;
+                $scrollBarContainer.find(".scrollBarTrack").remove();
+                $scrollBarContainer.find(".scrollArrowUp").remove();
+                $scrollBarContainer.find(".scrollArrowDown").remove();
                 $this.css({'top':0});
             } else {
                 this.originalPadding = $this.css('paddingTop') + ' ' + $this.css('paddingRight') + ' ' + $this.css('paddingBottom') + ' ' + $this.css('paddingLeft');
@@ -99,6 +102,8 @@
                         'padding':this.originalPadding
                     }
                 );
+                /*宽度设为默认宽度*/
+                $this.css("width",$this.parent().innerWidth());
             }
         },
         /*用户自定义滚动条箭头*/
@@ -250,7 +255,7 @@
             /*计算滚动条核心高度（高度 = scrollBarDragTop+scrollBarDragMiddle+scrollBarDragBottom）*/
             var dragH = Math.max(Math.min(this.percentInView*(this.paneHeight- this.options.arrowSize*2), this.options.dragMaxHeight), this.options.dragMinHeight);
             $drag.css({'height':dragH+'px'}).bind('mousedown', _this.onStartDrag);
-            /*给中间条jScrollPaneDragMiddle上高度*/
+            /*给中间条scrollBarDragMiddle上高度*/
             $(".scrollBarDragMiddle").height(parseFloat(dragH-this.options.dragTopBottomHeight));
 
             /*初始化拖动*/

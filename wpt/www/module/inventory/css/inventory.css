@@ -50,7 +50,7 @@
 #tickets .content .title .name{ width: 244px;}
 #tickets .content .title .amount{width: 244px;}
 #tickets .content .title .exp_date{ width: 360px;}
-#tickets .content .scroll-pane li{display: block;margin-right: 5px;font-size: 24px;color: #fff;margin-top: 5px;background: url("../images/tickets_bg.png") no-repeat;width: 100%;height: 65px;line-height: 65px;}
+#tickets .content .scroll-pane li{display: block;margin-right: 5px;font-size: 24px;color: #fff;margin-top: 5px;background: url("../images/tickets_bg_02.png") repeat-x;width: 100%;height: 65px;line-height: 65px;/* border: 2px; */border-radius: 8px;}
 #tickets .content .scroll-pane li span{display: block;float: left}
 #tickets .content .scroll-pane li .name{width: 244px;}
 #tickets .content .scroll-pane li .name em.btn{background-position: -266px -439px;width: 54px;height: 33px;display: block;margin-right: 10px;float: left;margin-top: 15px;margin-left: 12px;}
@@ -69,10 +69,12 @@
 .charms_avatars .left .content .top{height: 394px;background: #07090d;}
 .charms_avatars .left .content .bottom{background: url("../images/avatars_bg_01.png") repeat-x;height: 54px;}
 .charms_avatars .left .content .top .items{width: 57px;height: 52px;text-align: center;margin: 0 auto;padding-top: 60px;}
+.charms_avatars .left .content .top .items img{width: 57px;height: 52px;}
 .charms_avatars .left .content .top .light{background: url("../images/light_bg.png") no-repeat;background-position-x: 62px;}
 .charms_avatars .left .content .top .light .avatars{ margin: 0 auto; width: 190px; height: 311px;   margin-top: 10px;}
+.charms_avatars .left .content .top .light .avatars img{width: 190px;height: 311px;}
 .charms_avatars .scroll-pane ul{padding-left: 17px;}
-.charms_avatars .scroll-pane li{float: left;width: 120px;height: 140px;display: block;margin-top: 25px;background-position: -439px -438px;margin-right: 14px;}
+.charms_avatars .scroll-pane li{float: left;width: 120px;height: 140px;display: block;margin-top: 25px;background-position: -439px -438px;margin-right: 12px;}
 .charms_avatars .scroll-pane li .img{width: 83px;height: 75px;display: block;margin: 0 auto;margin-top: 26px;}
 .charms_avatars .scroll-pane li .img img{width: 83px;height: 75px;}
 .charms_avatars .scroll-pane li.now{background: url("../images/avatars_select.png") no-repeat}
@@ -89,6 +91,7 @@
 #emojis  .scroll-pane li{background: none}
 #emojis .scrollBarContainer{right: 22px;top: 1px;position: relative;}
 #emojis  .left .content .top .light .select_avatars{width: 137px;height: 139px;margin: 0 auto;position: relative;top: -257px;}
+#emojis  .left .content .top .light .select_avatars img{width: 137px;height: 139px;}
 #emojis  .right .corner_con .title{}
 #emojis  .right .corner_con .title .emojis_02{display: block;background-position: -336px -629px;width: 55px;height: 40px;float: left;}
 #emojis  .right .corner_con .title .emojis_01{display: block;background-position: -474px -629px;width: 55px;height: 40px;float: left;}
@@ -98,6 +101,7 @@
 #emojis  .scroll-pane li{float: left;width: 74px;height: 76px;display: block;margin-top: 20px;background-position: -439px -438px;margin-right: 33px;}
 #emojis  .scroll-pane li .img{width: 74px;height: 76px;display: block;margin: 0 auto;margin-top: 26px;}
 #emojis .scroll-pane li .img img{width: 74px;height: 76px;}
+
 
 /*头像*/
 #avatars .get_button .btn{background-position: -30px -384px;margin-left: 8px;margin-top: 12px;position: relative;top: 10px;}

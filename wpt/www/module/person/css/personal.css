@@ -1,15 +1,18 @@
-
+.ms-controller,.ms-important,[ms-controller],[ms-important]{
+    visibility: hidden;
+}
 .title_account{ background: url("../images/account.png") 0 30px no-repeat; width:254px;}
 .scroll_con{ height: 612px;}/*corner_bg 中含有padding：3px; so 619-6px-1px的border*/
 .info_width{ width:90%; padding: 6px ; margin-bottom: 3px;}
- .column_title{ font-size: 23px; line-height: 30px; padding-bottom: 4px; font-weight: bold; color: #fff;}
+ .column_title{ font-size: 23px; line-height: 30px; height: 30px; padding-bottom: 4px; font-weight: bold; color: #fff;}
  .no_margin{ margin: 0 !important;}
  .show_infos{ padding: 0;}
   .show_infos ul li{ height: 46px; line-height: 46px; padding: 0 10px; font-size: 24px;}
   .show_infos ul li:nth-child(even){ background: #0c1017;}/*odd:奇数*/
-  .show_infos ul li p{ width: 30%; line-height: 45px; color: #9ea5b1;}
-  .show_infos ul li .infos{ width: 40%; color: #fff;}
-  .show_infos ul li .change_input{ width: 40%; height: 37px; line-height: 37px; padding: 0 !important; background: #fff; border-radius: 4px;}
+  .show_infos ul li p{ width: 28%; line-height: 45px; color: #9ea5b1;}
+  .show_infos ul li .infos{ width: 45%; color: #fff;}
+  .show_infos ul li .change_input{ width: 45%; height: 37px; line-height: 37px; padding: 0 !important; background: #fff; border-radius: 4px; margin-top: 4px;}
   .show_infos ul li a{ color: #58c2ff; text-decoration: underline; font-size: 20px;}
+  .erro{ color: #d33333;}
 .bg_gary{ background: #0c1017;}
 .fll{ float: left;}.flr{ float: right;}
