@@ -1,81 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>付款</title>
     <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="no">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="css/m-base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/m-layout.css"/>
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/m-reactive.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/shop_common.css"/>
-     <style>
-         .area{
-             margin: 0 auto;
-             text-align: center;
-         }
-         #test_area_three{
-             width: 14rem;
-             height: 14rem;;
-         }
+    <meta name="keywords" content="">
+    <meta name="description" content="一个前端工作者的学习笔记">
+    <title>图片</title>
+    <link rel="stylesheet" href="http://www.loveqiao.com/css/public.css">
+    <style>
+        img{ border:solid 1px #ddd;}
     </style>
+</head>
+
 <body>
-<div class="kfz-layout">
-    <div class="area" ><img  id="fff" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
-    <div class="area" ><img  id="test_area_three" src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
-    <div class="area" ><img  src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
-    <div class="area" ><img  src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
-    <div class="area" ><img  src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
-    <div class="area" ><img  src="http://shiwanzhou.github.io/test/images/m/shop_area1.jpg"></div>
-    <div>
-        从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部 从底部
-    </div>
+<div align="center">
+    <img src="img1.png" width="300">
+    <img src="img2.png" width="300">
+    <img src="img3.png" width="300">
+    <img src="img4.png" width="300">
 </div>
-
-
-<script type="text/javascript">
-    (function(){
-        var handleTouchyPinch = function (e, $target, data) {
-            var scale = data.scale;
-            $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
-            e.stopPropagation();
-            e.preventDefault()
-            $(windwo).bind("scroll",function(){
-                $target.data('touchyPinch').settings.preventDefault.start = false;
-                $target.data('touchyPinch').settings.preventDefault.move = false;
-                $target.data('touchyPinch').settings.preventDefault.end = false;
-                $target.unbind('touchy-pinch', handleTouchyPinch);
-                $target.bind('touchy-pinch', handleTouchyPinch);
-            })
+<div id="imgBox" align="center">
+    <input type="button" value="一键合成" onClick="hecheng()">
+</div>
+<script>
+    function hecheng(){
+        draw(function(){
+            document.getElementById('imgBox').innerHTML='<p style="padding:10px 0">合成图片成功！可以鼠标另存图片查看我是否是一张图片~~！</p><img src="'+base64[0]+'">';
+        })
+    }
+    var data=['img1.png','img2.png','img3.png','img4.png'],base64=[];
+    function draw(fn){
+        var c=document.createElement('canvas'),
+                ctx=c.getContext('2d'),
+                len=data.length;
+        c.width=290;
+        c.height=290;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#fff';
+        ctx.fill();
+        function drawing(n){
+            if(n<len){
+                var img=new Image;
+                //img.crossOrigin = 'Anonymous'; //解决跨域
+                img.src=data[n];
+                img.onload=function(){
+                    ctx.drawImage(img,0,0,290,290);
+                    drawing(n+1);//递归
+                }
+            }else{
+                //保存生成作品图片
+                base64.push(c.toDataURL("image/jpeg",0.8));
+                //alert(JSON.stringify(base64));
+                fn();
+            }
         }
-
-
-        $('#test_area_three').unbind('touchy-pinch', handleTouchyPinch);
-        $('#test_area_three').bind('touchy-pinch', handleTouchyPinch);
-
-        // console.log( $('#test_area_three').data('touchyPinch'))
-
-
-    })();
+        drawing(0);
+    }
 </script>
 </body>
 </html>
