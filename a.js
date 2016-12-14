@@ -8,6 +8,14 @@ var url = require("url");
 var qs = require("querystring");
 var url2='http://fund.eastmoney.com/160212.html';
 
+
+var PORT = 8080;
+var http = require('http');
+var url=require('url');
+var fs=require('fs');
+var mine=require('./mine').types;
+var path=require('path');
+
 var url3='http://fund.eastmoney.com/519983.html';
 var url4='http://fund.eastmoney.com/210004.html';
 var url5='http://fund.eastmoney.com/519697.html';
@@ -46,6 +54,11 @@ function filterData(html,url){
 	gg.实际值 = current;
 	gg.估值 = guzhi;
 	gg.当前时间 = date;
+    if(gg.代码 == 210004 ){
+        console.log(typeof  current)
+        var createHttp = require("./createHttp");
+        createHttp.aaa();
+    }
 	chapters.find("td").each(function(i){
 		if(i == 6){
 			gg.近1年 =$(this).text().trim();
