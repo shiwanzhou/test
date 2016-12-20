@@ -1,0 +1,58 @@
+
+
+/*公共背景图*/
+.store_01 {background: url("../images/store_01.png") no-repeat}
+.store_02 {background: url("../images/store_02.png") no-repeat}
+
+/*支付弹框样式*/
+.store{position: relative}
+.store .top{background: url("../images/top.png") no-repeat;width: 433px;height: 280px;position: absolute;left: 263px;top: -303px;z-index: -1;}
+.store .top_bar{position: absolute;top: -66px;left: 4px;}
+
+
+/*导航*/
+.store .nav{padding-left: 29px;}
+.store .nav ul  li{float: left;display: block;margin-right: 7px;cursor: pointer;}
+.store .nav ul  li span{display: block;height: 43px;line-height: 43px;width:142px;}
+.store .nav ul  li .gold{background-position: -173px -269px;}
+.store .nav ul  li .silver{background-position: -333px -39px;}
+.store .nav ul  li .items{background-position: -173px -506px;}
+.store .nav ul  li.now .gold{background-position: -173px -433px;}
+.store .nav ul  li.now .silver{background-position: -333px -192px;}
+.store .nav ul  li.now .items{background-position: -173px -652px;}
+
+
+.store .nav2{padding-left: 46px;height: 43px;margin-top: 12px;}
+.store .nav2   li{float: left;display: block;margin-right: 5px;cursor: pointer;height: 43px;}
+.store .nav2   li span{display: block;height: 43px;line-height: 43px;width: 113px;}
+.store .nav2   li .avatars{background-position: -26px -37px;}
+.store .nav2   li .charms{background-position: -26px -266px;}
+.store .nav2   li .emojis{background-position: -26px -503px;}
+.store .nav2   li .other{background-position: -184px -38px;}
+.store .nav2   li.now .avatars{background-position: -26px -190px;}
+.store .nav2   li.now .charms{background-position: -26px -435px;}
+.store .nav2   li.now .emojis{background-position: -26px -649px;}
+.store .nav2   li.now .other{background-position: -184px -190px;}
+
+
+.store .item{width: 254px;height: 422px;background: url("../images/store_item_bg.png") no-repeat;float: left;margin-right: 40px;margin-top: 9px;}
+.store .item:first-child{margin-left: 45px;}
+.store .item .title{font-size: 20px;color: #fff;font-weight: bold;height: 46px;line-height: 46px;text-align: center;}
+.store .item .img{width: 252px;height: 262px;position: relative}
+.store .item .img img{width: 252px;height: 262px;}
+.store .item .img .preview{position: absolute;bottom:4px;right:4px;background-position: -522px -504px;width: 35px;height: 35px;cursor: pointer;}
+.store .item .img .preview:hover{background-position: -522px -576px;}
+.store .item .text_01{font-family:"Microsoft Sans Serif";color: #aab7f5;font-size: 14px;height: 54px;text-align: center;line-height: 54px;}
+.store .item .text_02{font-family:"Microsoft Sans Serif";color: #aab7f5;font-size: 14px;height: 50px;text-align: center;text-indent: 1px;line-height: 22px;padding-left: -6px;width: 197px;margin-left: 27px;overflow: hidden;text-overflow: ellipsis;padding-top: 6px;}
+.store .item  .price_01,.store .item  .price_02{background: url("../images/store_price_bg.png") no-repeat;margin-left: 31px;height: 47px;}
+.store .item  .price_01 .btn{background-position: -367px -508px;width: 48px;height: 44px;float: left;}
+.store .item  .price_01 .text{font-size: 24px;color: #ecd23c;float: left;margin-left: 4px;font-weight: bold;margin-top: 8px;}
+.store .item  .price_02 .btn{background-position: -522px -410px;width: 60px;height: 60px;float: left;margin-top: -9px;margin-left: 19px;}
+.store .item  .price_02 .text{font-size: 24px;color: #cae868;float: left;margin-left: 4px;font-weight: bold;margin-top: 8px;}
+.store  .store_emojis,.store  .store_avatars,.store  .store_charms,.store  .store_other{width: 940px;height: 440px;}
+
+.store  #items .left_arrow{cursor:pointer;background: url("../images/left_arrow.png") no-repeat;width: 32px;height: 91px;position: absolute;margin-top: 124px;left: -4px;}
+.store  #items .right_arrow{cursor:pointer;background: url("../images/right_arrow.png") no-repeat;width: 32px;height: 91px;position: absolute;right: -3px;margin-top: 124px;}
+
+.store  #items .column_con{width: 940px; height: 440px;}
+
