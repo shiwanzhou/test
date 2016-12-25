@@ -56,12 +56,18 @@
                     elem.width(paneWidth);
 
                     pane = $('<div class="jspPane" />').css('padding', originalPadding).append(elem.children());
+                   var pane2  = $('<div class="jspPane2" />');
+                    pane2 .css({
+                        'width': paneWidth + 'px',
+                        'height': paneHeight + 'px'
+                    });
+                    pane2.append(pane);
                     container = $('<div class="jspContainer" />')
                         .css({
                             'width': paneWidth + 'px',
                             'height': paneHeight + 'px'
                         }
-                    ).append(pane).appendTo(elem);
+                    ).append(pane2).appendTo(elem);
 
                 } else {
                     elem.css('width', '');
@@ -773,7 +779,6 @@
             function scrollToX(destX, animate)
             {
                 var percentScrolled = destX / (contentWidth - paneWidth)
-                console.log(112)
                 positionDragX(percentScrolled * dragMaxX, animate);
             }
 
@@ -1261,7 +1266,7 @@
                     // the value of animateScroll from the settings object this jScrollPane was initialised with is used.
                     scrollByX: function(deltaX, animate)
                     {
-                        console.log(contentPositionX())
+                       // console.log(contentPositionX())
                         var destX = contentPositionX() + Math[deltaX<0 ? 'floor' : 'ceil'](deltaX),
                             percentScrolled = destX / (contentWidth - paneWidth);
                        // console.log(percentScrolled * dragMaxX)
