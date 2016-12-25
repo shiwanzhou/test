@@ -1,0 +1,99 @@
+<!--商城弹框-->
+<link rel="stylesheet" type="text/css" media="all" href="../store/css/store.css" />
+<div ms-controller="store"  class="ms-controller"  class="widget-dialog" ms-widget="dialog,show_store,openDialog">
+          <div class="store">
+              <div class="top"></div>
+              <div class="top_bar">
+                  <img src="../store/images/store_bar.png">
+              </div>
+              <!--导航-->
+              <div class="nav">
+                  <ul>
+                      <li ms-repeat="baseData"  ms-class="now:bigNavIndex===$index"  ms-click="bigTabClick($index,el)">
+                          <span class="store_01" ms-class="{{el}}"></span>
+                      </li>
+                  </ul>
+              </div>
+              <!--主体内容-->
+              <div class="clear"></div>
+              <!--glod-->
+              <div id="glod" class="corner_bg" ms-visible="glod">
+              </div>
+              <!--silver-->
+              <div id="silver" class="corner_bg" ms-visible="silver">
+              </div>
+              <!--items-->
+              <div id="items"  class="corner_bg" ms-visible="items">
+                  <div class="corner_con">
+                      <ul class="nav2">
+                          <li ms-repeat="baseData2"  ms-class="now:smallNavIndex===$index"  ms-click="smallTabClick($index,el)">
+                              <span class="store_01" ms-class="{{el}}"></span>
+                          </li>
+                      </ul>
+                      <div class="left_arrow"></div>
+                      <div class="right_arrow"></div>
+                      <!--avatars-->
+                      <div  class="store_avatars" ms-visible="avatars">
+                          <div class="column_con">
+                          </div>
+                      </div>
+                      <!--charms-->
+                      <div  class="store_charms" ms-visible="charms">
+                          <div class="column_con">
+                          </div>
+                      </div>
+                      <!--emojis-->
+                      <div  class="store_emojis" ms-visible="emojis">
+                          <div class="column_con">
+                              <div class="clear item">
+                                  <div class="title">Lucky Spin Ticket</div>
+                                  <div class="img">
+                                      <img src="../store/images/252x262.png">
+                                      <div class="store_01 preview"></div>
+                                  </div>
+                                  <div class="text_01">" Indeed - a wise choice!"</div>
+                                  <div class="price_01">
+                                      <div class="store_01 btn"></div>
+                                      <div class="text">100,000</div>
+                                  </div>
+                              </div>
+                              <div class="clear item">
+                                  <div class="title">Lucky Spin Ticket</div>
+                                  <div class="img">
+                                      <img src="../store/images/252x262_02.png">
+                                      <div class="store_01 preview"></div>
+                                  </div>
+                                  <div class="text_02">
+                                      Speed one Lucky Spin Ticket
+                                      to spin once the premium spinhe premium spin.
+                                  </div>
+                                  <div class="price_02">
+                                      <div class="store_01 btn"></div>
+                                      <div class="text">0.90</div>
+                                  </div>
+                              </div>
+                              <div class="clear item">
+                                  <div class="title">Lucky Spin Ticket</div>
+                                  <div class="img">
+                                      <img src="../store/images/252x262_02.png">
+                                      <div class="store_01 preview"></div>
+                                  </div>
+                                  <div class="text_01">
+                                      " Indeed - a wise choice!"
+                                  </div>
+                                  <div class="price_01">
+                                      <div class="store_01 btn"></div>
+                                      <div class="text">200</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!--other-->
+                      <div  class="store_other"  ms-visible="other">
+                          <div class="column_con">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</div>

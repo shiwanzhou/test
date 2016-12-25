@@ -1,0 +1,9 @@
+
+.oni-dialog .oni-dialog-content{padding: 0}
+.ms-controller,.ms-important,[ms-controller],[ms-important]{
+    visibility: hidden;
+}
+#logo{background:beige;font-size: 20px;display: block;float: left;}
+#button1{background: #0000ff;float: left;}
+#button2{background: red}
+#button3{background: darkgray}

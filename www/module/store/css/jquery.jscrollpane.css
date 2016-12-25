@@ -1,0 +1,171 @@
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+    /* overflow: hidden; */
+    /* position: relative; */
+}
+
+.jspPane
+{
+    position: absolute;
+}
+
+.jspVerticalBar
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 100%;
+}
+
+.jspHorizontalBar
+{
+    position: fixed;
+    bottom: 0;
+    left: 56px;
+    /* width: 928px; */
+    height: 16px;
+    top: 520px;
+    z-index: 99999999999999;
+}
+
+.jspCap
+{
+    display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+    float: left;
+}
+
+.jspTrack
+{
+    /* background: #dde; */
+    position: relative;
+}
+
+.jspDrag
+{
+    /* background: #bbd; */
+    position: absolute;
+    top: 2px;
+    left: 0;
+    cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+    float: left;
+    height: 100%;
+    /* margin-left: 68px; */
+    /* z-index: 3333; */
+}
+.jspDragLeft{position:absolute;top: 0px;left:0;overflow:hidden;background:url(../../../common/images/scrollBar_left.png) no-repeat;height: 20px;width: 8px;}
+.jspDragMiddle{position:absolute;/* top:7px; */left: 7px;background:url(../../../common/images/scrollBar_middle_02.png) repeat-x;height:19px;}
+.jspDragRight{position:absolute;bottom:0;right: 2px;overflow:hidden;background:url(../../../common/images/scrollBar_right.png) no-repeat;height: 19px;width: 8px;top: 0px;}
+
+.jspArrow
+{
+    background: #50506d;
+    text-indent: -20000px;
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.jspArrow.jspDisabled
+{
+    cursor: default;
+    /* background: #80808d; */
+}
+
+.jspVerticalBar .jspArrow
+{
+    height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+    width: 16px;
+    float: left;
+    height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+    outline: none;
+}
+
+.jspCorner
+{
+    background: #eeeef4;
+    float: left;
+    height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+    margin: 0 -3px 0 0;
+}
+
+
+
+.jspTrack .jspTrackLeft{background: url("../../../common/images/scrollBar_bg02_left.png") no-repeat;width: 10px;height: 23px;float: left;}
+.jspTrack .jspTrackMiddle{background: url("../../../common/images/scrollBar_bg02_middle.png") repeat-x;width: 97.7%;height: 23px;/* margin: 0 23px; *//* float: left; */margin-left: 10px;margin-right: -2px;}
+.jspTrack .jspTrackRight{background: url("../../../common/images/scrollBar_bg02_right.png") no-repeat;width: 10px;height: 23px;float: left;position: absolute;right: 0;top: 0px;}
+
+
+
+
+
+
+.jspHorizontalBar,
+.jspVerticalBar,
+.jspTrack
+{
+    height: 19px;
+}
+
+.jspDrag
+{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+.jspVerticalBar .jspArrow
+{
+    height: 64px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+    width: 37px;
+    height: 92px;
+}
+
+
+.jspArrowLeft{cursor:pointer;background: url("../../../common/images/scrollBar_left_arrow.png") no-repeat;width: 32px;height: 91px;position: fixed;margin-top: 124px;left: 17px;top: 18px;}
+.jspArrowRight{cursor:pointer;background: url("../../../common/images/scrollBar_right_arrow.png") no-repeat;width: 32px;height: 91px;position: absolute;right: -48px;margin-top: -378px;}
+
+
+
+
+
+
+
+
+
