@@ -115,7 +115,7 @@
 </div>-->
 
 
-<div class="oni-dialog-inner" style="width: 1016px;">
+<div class="oni-dialog-inner" style="width: 1016px;margin: 0 auto">
     <div class="top_pop">
         <div class="top_leftbg fll"></div>
         <div class="top_centbg fll">
@@ -132,7 +132,7 @@
     <div class="pop_con_rightbg">
 
         <div class="pop_con">
-            <div class="store">
+            <div class="store" >
                 <div class="top"></div>
                 <div class="top_bar">
                     <img src="../store/images/store_bar.png">
@@ -310,6 +310,17 @@
             showArrows: true,
             horizontalGutter: 10
         });
+            $("#s2").find(".item").find(".preview").on("click",function(e){
+                   var width2 = parseInt($("body").width()/2);
+                   var width3 = parseInt(width2+$("#s2").find(".item").width());
+                   if(e.clientX < width2){
+                       console.log("左边")
+                   }else if(e.clientX > width2 && e.clientX<width3){
+                       console.log("中间")
+                   }else if(e.clientX > width3){
+                       console.log("右边")
+                   }
+               })
     });
 </script>
 </body>

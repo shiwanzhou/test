@@ -103,7 +103,7 @@
                 if (s.contentWidth) {
                     contentWidth = s.contentWidth;
                 } else {
-                    contentWidth = pane[0].scrollWidth-25.99;
+                    contentWidth = pane[0].scrollWidth-26;
                 }
                 contentHeight = pane[0].scrollHeight;
                 pane.css('overflow', '');
