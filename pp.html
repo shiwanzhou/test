@@ -26,10 +26,18 @@
                 var IsWinxin = sUserAgent.match(/MicroMessenger/i) == "micromessenger";
                 if (IsIpad || IsIOS) {
                     window.location="itms-apps://itunes.apple.com/us/app/world-poker-tour-playwpt-texas/id1144458302";
-                   // window.location.href = "https://www.playwpt.com/mobile_download.html";
+                    setTimeout(
+                            function(){
+                                window.location="https://www.playwpt.com/mobile_ios.html";
+                            },
+                     500);
                 }else if(IsMidp || IsUc7 || IsUc || IsAndroid || IsCE || IsWM || IsWinxin){
                     window.location="https://play.google.com/store/apps/details?id=com.playwpt.mobile.poker";
-                  //  window.location.href = "https://www.playwpt.com/mobile.html";
+                    setTimeout(
+                            function(){
+                                window.location="https://www.playwpt.com/mobile_android.html";
+                            },
+                     500);
                 }
             }
             browserRedirect();
