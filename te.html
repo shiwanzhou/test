@@ -19,19 +19,14 @@
 
 
 <script>
-    function appDown(){
-        setTimeout(
-                function(){
-                    window.location="itms-apps://itunes.apple.com/us/app/world-poker-tour-playwpt-texas/id1144458302";
-                },
-                30);
-    }
-    var appDownBtn = document.getElementById("appDownBtn");
-    if (appDownBtn.addEventListener){
-        appDownBtn.addEventListener("click", appDown);
-    } else if (appDownBtn.attachEvent) {
-        appDownBtn.attachEvent("onclick", appDown);
-    }
+   /* setTimeout(function(){window.location.href="https://play.google.com/store/apps/details?id=com.playwpt.mobile.poker";},20);*/
+    var iframe = document.createElement("iframe");
+   iframe.src = 'https://play.google.com/store/apps/details?id=com.playwpt.mobile.poker';
+   iframe.style.display = 'none';
+   document.body.appendChild(iframe);
+  /* window.setTimeout(function(){
+       document.body.removeChild(iframe);
+   },3000)*/
 </script>
 </body>
 </html>
